@@ -2327,3 +2327,9 @@ button,
   margin-bottom: 10px; /* Adjust space between Workflow items */
 }
 
+.image-fit {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: top;
+}
