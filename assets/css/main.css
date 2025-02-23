@@ -2430,3 +2430,15 @@ iframe {
   display: block; /* Forces a new line */
 }
 
+.star-rating {
+  color: #ffd700; /* Gold color for stars */
+  font-size: 1.2em;
+}
+
+.star-rating .fa-star-half-alt {
+  color: #ffd700; /* Gold color for half stars */
+}
+
+.star-rating .far.fa-star {
+  color: #ccc; /* Light gray color for empty stars */
+}
