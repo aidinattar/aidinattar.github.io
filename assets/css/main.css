@@ -1211,38 +1211,43 @@ input[type="radio"] + label:before {
     font-family: 'Font Awesome 5 Brands'; }
 
 /* Image */
-.image {
-  border-radius: 0.375em;
-  border: 0;
-  display: inline-block;
-  position: relative; }
-  .image img {
-    border-radius: 0.375em;
-    display: block; }
-  .image.left, .image.right {
-    max-width: 40%; }
-    .image.left img, .image.right img {
-      width: 100%; }
-  .image.left {
-    float: left;
-    padding: 0 1.5em 1em 0;
-    top: 0.25em; }
-  .image.right {
-    float: right;
-    padding: 0 0 1em 1.5em;
-    top: 0.25em; }
-  .image.fit {
-    display: block;
-    margin: 0 0 2em 0;
-    width: 100%; }
-    .image.fit img {
-      width: 100%; }
-  .image.main {
-    display: block;
-    margin: 0 0 3em 0;
-    width: 100%; }
-    .image.main img {
-      width: 100%; }
+/* Base .image.fit styles (unchanged) */
+.image.fit {
+  display: block;
+  margin: 0 0 2em 0;
+  width: 100%;
+}
+
+.image.fit img {
+  width: 100%;
+  height: auto; /* Allow the image to scale naturally */
+}
+
+/* New .zoomed class for zoomed behavior */
+.image.fit.zoomed {
+  height: 300px; /* Fixed height for zoomed version (adjust as needed) */
+  overflow: hidden; /* Prevent the image from overflowing */
+}
+
+.image.fit.zoomed img {
+  width: 100%;
+  height: 100%; /* Fill the container height */
+  object-fit: cover; /* Crop the image to fit */
+  object-position: 50% 0%; /* Align to the top */
+}
+
+/* Adjust zoom for smaller screens */
+@media screen and (max-width: 768px) {
+  .image.fit.zoomed img {
+    object-position: 50% 20%; /* Zoom slightly lower */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .image.fit.zoomed img {
+    object-position: 50% 30%; /* Zoom even lower */
+  }
+}
 
 a.image {
   overflow: hidden; }
@@ -2331,5 +2336,102 @@ button,
   width: 100%;
   height: auto;
   object-fit: cover;
-  object-position: top;
+  object-position: center;
 }
+
+/* Style for Letterboxd embed */
+iframe {
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow */
+  margin-bottom: 1em; /* Space below the embed */
+}
+
+/* Custom Letterboxd-Like Review Styling */
+.letterboxd-review {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1em;
+  margin-bottom: 2em;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.movie-poster {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 1em;
+}
+
+.review-details h4 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.review-details p {
+  margin: 0.5em 0;
+  color: #555;
+}
+
+.review-content {
+  margin-bottom: 1em;
+}
+
+.review-content p {
+  margin: 0.5em 0;
+}
+
+.button-letterboxd {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.button-letterboxd:hover {
+  background-color: #0056b3;
+}
+
+.image-container {
+  display: flex; /* Use Flexbox */
+  gap: 10px; /* Space between images */
+  margin: 1em 0; /* Margin above and below the container */
+}
+
+.image-container img {
+  flex: 1; /* Each image takes up equal space */
+  height: 300px; /* Set a fixed height (adjust as needed) */
+  object-fit: cover; /* Ensure images maintain aspect ratio while filling the space */
+  object-position: 50% 0%; /* Zoom in on the top part of the image */
+  border-radius: 8px; /* Rounded corners */
+}
+
+@media (max-width: 600px) {
+  .image-container {
+      flex-direction: column; /* Stack images vertically on small screens */
+  }
+  .image-container img {
+      height: auto; /* Allow images to adjust their height */
+  }
+}
+
+.image-container img.top-align {
+  object-position: 50% 15%; /* Zoom in on the top */
+}
+
+.image-container img.custom-align {
+  object-position: 50% 80%; /* Zoom in slightly below the top */
+}
+
+.new-line {
+  display: block; /* Forces a new line */
+}
+
