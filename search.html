@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
         .search-results {
             margin-top: 20px;
         }
+
         .search-results .result-item {
             background: #fff;
             padding: 15px;
@@ -17,15 +19,18 @@
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         .search-results .result-item h3 {
             margin-top: 0;
         }
+
         .search-results .result-item p {
             margin-bottom: 0;
             color: #555;
         }
     </style>
 </head>
+
 <body class="is-preload">
     <!-- Wrapper -->
     <div id="wrapper">
@@ -36,9 +41,12 @@
                 <header id="header">
                     <a href="index.html" class="logo"><strong>Aidin Attar</strong> - Personal Website</a>
                     <ul class="icons">
-                        <li><a href="https://github.com/aidinattar" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-                        <li><a href="https://linkedin.com/in/aidinattar" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                        <li><a href="https://gitlab.com/aidinattar" class="icon brands fa-gitlab"><span class="label">GitLab</span></a></li>
+                        <li><a href="https://github.com/aidinattar" class="icon brands fa-github"><span
+                                    class="label">GitHub</span></a></li>
+                        <li><a href="https://linkedin.com/in/aidinattar" class="icon brands fa-linkedin"><span
+                                    class="label">LinkedIn</span></a></li>
+                        <li><a href="https://gitlab.com/aidinattar" class="icon brands fa-gitlab"><span
+                                    class="label">GitLab</span></a></li>
                         <!-- <li><a href="projects-it.html" class="button small">IT</a></li> -->
                     </ul>
                 </header>
@@ -71,8 +79,8 @@
                         <li>
                             <span class="opener"><a href="index.html">Homepage</a></span>
                             <ul>
-								<li><a href="index.html#banner">Introduction</a></li>
-								<li><a href="index.html#features">Features</a></li>
+                                <li><a href="index.html#banner">Introduction</a></li>
+                                <li><a href="index.html#features">Features</a></li>
                                 <li><a href="index.html#experience">Experience</a></li>
                                 <li><a href="index.html#education">Education</a></li>
                                 <li><a href="index.html#skills">Skills</a></li>
@@ -88,8 +96,10 @@
                 <!-- Footer -->
                 <footer id="footer">
                     <p class="copyright">
-                        &copy; 2024 Aidin Attar. All rights reserved. Images: <a href="https://unsplash.com">Unsplash</a>.
-                        Design: <a href="https://html5up.net">HTML5 UP</a>. Built with ❤️ by <a href="https://github.com/aidinattar">Aidin Attar</a>.
+                        &copy; 2024 Aidin Attar. All rights reserved. Images: <a
+                            href="https://unsplash.com">Unsplash</a>.
+                        Design: <a href="https://html5up.net">HTML5 UP</a>. Built with ❤️ by <a
+                            href="https://github.com/aidinattar">Aidin Attar</a>.
                     </p>
                 </footer>
             </div>
@@ -112,37 +122,36 @@
         // Display the search query and results
         const searchResults = document.getElementById('search-results');
 
-        if (query) {
-            searchResults.innerHTML = `<p>You searched for: <strong>${query}</strong></p>`;
+        fetch('files/data.json')
+            .then(response => response.json())
+            .then(data => {
+                const query = new URLSearchParams(window.location.search).get('query');
+                const searchResults = document.getElementById('search-results');
 
-            // Example search results (replace with actual search logic)
-            const exampleResults = [
-                { title: "Project 1", description: "Description of Project 1" },
-                { title: "Project 2", description: "Description of Project 2" },
-                { title: "Blog Post 1", description: "Description of Blog Post 1" },
-            ];
+                if (query) {
+                    const filteredResults = data.posts.filter(item =>
+                        item.title.toLowerCase().includes(query.toLowerCase()) ||
+                        (item.review && item.review.toLowerCase().includes(query.toLowerCase()))
+                    );
 
-            // Filter results based on the query
-            const filteredResults = exampleResults.filter(item =>
-                item.title.toLowerCase().includes(query.toLowerCase()) ||
-                item.description.toLowerCase().includes(query.toLowerCase())
-            );
-
-            if (filteredResults.length > 0) {
-                filteredResults.forEach(result => {
-                    searchResults.innerHTML += `
+                    if (filteredResults.length > 0) {
+                        filteredResults.forEach(result => {
+                            searchResults.innerHTML += `
                         <div class="result-item">
-                            <h3>${result.title}</h3>
-                            <p>${result.description}</p>
+                            <h3><a href="${result.letterboxdLink}" target="_blank">${result.title}</a></h3>
+                            <p>${result.review.substring(0, 150)}...</p>
                         </div>
                     `;
-                });
-            } else {
-                searchResults.innerHTML += `<p>No results found for your search.</p>`;
-            }
-        } else {
-            searchResults.innerHTML = `<p>No search query provided.</p>`;
-        }
-    </script>
+                        });
+                    } else {
+                        searchResults.innerHTML = `<p>No results found for your search.</p>`;
+                    }
+                } else {
+                    searchResults.innerHTML = `<p>No search query provided.</p>`;
+                }
+                })
+                .catch(error => console.error('Error loading data:', error));
+        </script>
 </body>
+
 </html>

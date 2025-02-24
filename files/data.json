@@ -1,0 +1,37 @@
+{
+    "posts": [
+        {
+            "title": "Movie Review: Disclaimer",
+            "date": "February 8, 2025",
+            "tags": ["Movie Review"],
+            "type": "movie",
+            "director": "Alfonso Cuaròn",
+            "rating": 3,
+            "review": "Alfonso Cuarón’s <i>Disclaimer<i> is a film that leaves you with a bittersweet aftertaste—a reminder that even the most brilliant minds can stumble. On paper, it has all the right ingredients: a poignant premise, a delicate and timely theme, and the unmistakable craftsmanship of a director who has given us masterpieces like <i>Roma<i> and <i>Children of Men<i>. Yet, somehow, the film feels like a beautifully constructed puzzle missing its final, vital piece. What’s most striking—and, in a way, comforting—is witnessing how even a genius like Cuarón can falter. <i>Disclaimer<i> is undeniably ambitious, tackling weighty ideas about memory, truth, and the fragility of human connection. The cinematography is, as expected, breathtaking, and the performances are nuanced and compelling. But for all its technical precision, the film struggles to breathe life into its narrative. It lacks the soul, the emotional core that makes Cuarón’s best work so profoundly moving. The film’s central theme is a delicate one, the kind that demands authenticity and care. There’s no room for missteps when dealing with such raw, human material. And yet, <i>Disclaimer<i> feels oddly detached, as if it’s observing its characters from a distance rather than immersing us in their world. It’s a reminder that even the most skilled artists can sometimes miss the mark, and that’s okay. There’s something strangely comforting in knowing that perfection is not the goal—it’s the humanity behind the art that truly matters. In the end, <i>Disclaimer<i> is a fascinating misfire—a film that dares to aim high but falls short of its own ambitions. It’s a testament to Cuarón’s talent that even his missteps are worth watching, but it’s also a poignant reminder that even the greatest storytellers can sometimes lose their way.",
+            "poster": "images/poster-disclaimer.jpg",
+            "letterboxdLink": "https://boxd.it/8M9c6p"
+        },
+        {
+            "title": "Movie Review: Nosferatu",
+            "date": "January 27, 2025",
+            "tags": ["Movie Review"],
+            "type": "movie",
+            "director": "Robert Eggers",
+            "rating": 4,
+            "review": "Robert Eggers’ Nosferatu reimagines the legendary tale of the vampire Count Orlok with a striking and provocative lens, one that places female liberation at its core. Unlike previous adaptations, Eggers crafts a narrative where horror is not merely external but deeply rooted in societal repression—particularly the control exerted over women’s desires and autonomy. The film’s protagonist finds herself ensnared in a world that labels her longing for freedom, especially sexual freedom, as hysteria. Men attempt to silence her through medication, through confinement, through chains both literal and metaphorical. Her struggle is not just against a monstrous creature but against the societal structures that have sought to suppress her very being. In this reading, Nosferatu is not merely a creature of the night but the dark manifestation of a secret, repressed, and tainted relationship with sexuality—one that society simultaneously fears and creates. Eggers’ vision is strikingly different from Werner Herzog’s 1979 adaptation, which leaned into the melancholic tragedy of the vampire’s curse. However, this Nosferatu feels in perfect continuity with Eggers’ own filmography, particularly The Witch, where the protagonist’s embrace of supposed evil is, in fact, an act of liberation from an oppressive world. In both films, the question is not whether the protagonist should resist the darkness but whether that darkness is, in truth, her only path to freedom. With meticulous period detail, haunting visuals, and an unsettling atmosphere, Eggers breathes new, terrifying life into a classic story—one that is not just about an ancient evil but about the way we, as a society, have always conjured monsters to justify our fears. Nosferatu is not merely a vampire film; it is a mirror reflecting the very forces that shape our understanding of desire, fear, and power.",
+            "poster": "images/poster-nosferatu.jpg",
+            "letterboxdLink": "https://boxd.it/8DUko5"
+        },
+        {
+            "title": "Graduating with My Master's Degree",
+            "date": "December 6, 2024",
+            "tags": ["Milestone"],
+            "type": "blog",
+            "content": "Today, I officially graduated with my Master's degree in Physics of Data from the University of Padua. It was a challenging but rewarding journey, and I'm excited to see where this new chapter takes me. Here's to lifelong learning and new adventures!",
+            "images": [
+                "images/graduation-1.JPG",
+                "images/graduation-3.JPG"
+            ]
+        }
+    ]
+}
