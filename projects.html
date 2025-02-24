@@ -99,12 +99,15 @@
 		<div id="sidebar">
 			<div class="inner">
 				<!-- Search -->
-				<section id="search" class="alt">
+
+				<form method="get" action="search.html">
+					<input type="text" name="query" id="query" placeholder="Search" />
+				</form>
+				<!-- <section id="search" class="alt">
 					<form method="post" action="#">
 						<input type="text" name="query" id="query" placeholder="Search" />
 					</form>
-				</section>
-				<!-- Menu -->
+				</section> -->				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
 						<h2>Menu</h2>
@@ -113,6 +116,8 @@
 						<li>
 							<span class="opener"><a href="index.html">Homepage</a></span>
 							<ul>
+                                <li><a href="index.html#banner">Introduction</a></li>
+								<li><a href="index.html#features">Features</a></li>
 								<li><a href="index.html#experience">Experience</a></li>
 								<li><a href="index.html#education">Education</a></li>
 								<li><a href="index.html#skills">Skills</a></li>

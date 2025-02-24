@@ -2442,3 +2442,38 @@ iframe {
 .star-rating .far.fa-star {
   color: #ccc; /* Light gray color for empty stars */
 }
+
+/* Search Results Styling */
+.search-results {
+  margin-top: 20px;
+}
+
+.search-results .result-item {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-results .result-item h3 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.search-results .result-item p {
+  margin-bottom: 0;
+  color: #555;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .search-results .result-item {
+      padding: 10px;
+  }
+
+  .search-results .result-item h3 {
+      font-size: 1.2em;
+  }
+}

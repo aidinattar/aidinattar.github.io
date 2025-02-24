@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Aidin Attar</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        /* Additional styling for search results */
+        .search-results {
+            margin-top: 20px;
+        }
+        .search-results .result-item {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .search-results .result-item h3 {
+            margin-top: 0;
+        }
+        .search-results .result-item p {
+            margin-bottom: 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Aidin Attar</strong> - Personal Website</a>
+                    <ul class="icons">
+                        <li><a href="https://github.com/aidinattar" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                        <li><a href="https://linkedin.com/in/aidinattar" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                        <li><a href="https://gitlab.com/aidinattar" class="icon brands fa-gitlab"><span class="label">GitLab</span></a></li>
+                        <!-- <li><a href="projects-it.html" class="button small">IT</a></li> -->
+                    </ul>
+                </header>
+
+                <!-- Search Results Section -->
+                <section>
+                    <h1>Search Results</h1>
+                    <div id="search-results" class="search-results">
+                        <!-- Search results will be dynamically inserted here -->
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+                <!-- Search -->
+                <section id="search" class="alt">
+                    <form method="get" action="search.html">
+                        <input type="text" name="query" id="query" placeholder="Search" />
+                    </form>
+                </section>
+                <!-- Menu -->
+                <nav id="menu">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        <li>
+                            <span class="opener"><a href="index.html">Homepage</a></span>
+                            <ul>
+								<li><a href="index.html#banner">Introduction</a></li>
+								<li><a href="index.html#features">Features</a></li>
+                                <li><a href="index.html#experience">Experience</a></li>
+                                <li><a href="index.html#education">Education</a></li>
+                                <li><a href="index.html#skills">Skills</a></li>
+                                <li><a href="index.html#interests">Interests</a></li>
+                                <!-- <li><a href="#awards">Awards</a></li> -->
+                            </ul>
+                        </li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                    </ul>
+                </nav>
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">
+                        &copy; 2024 Aidin Attar. All rights reserved. Images: <a href="https://unsplash.com">Unsplash</a>.
+                        Design: <a href="https://html5up.net">HTML5 UP</a>. Built with ❤️ by <a href="https://github.com/aidinattar">Aidin Attar</a>.
+                    </p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Search Script -->
+    <script>
+        // Get the search query from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('query');
+
+        // Display the search query and results
+        const searchResults = document.getElementById('search-results');
+
+        if (query) {
+            searchResults.innerHTML = `<p>You searched for: <strong>${query}</strong></p>`;
+
+            // Example search results (replace with actual search logic)
+            const exampleResults = [
+                { title: "Project 1", description: "Description of Project 1" },
+                { title: "Project 2", description: "Description of Project 2" },
+                { title: "Blog Post 1", description: "Description of Blog Post 1" },
+            ];
+
+            // Filter results based on the query
+            const filteredResults = exampleResults.filter(item =>
+                item.title.toLowerCase().includes(query.toLowerCase()) ||
+                item.description.toLowerCase().includes(query.toLowerCase())
+            );
+
+            if (filteredResults.length > 0) {
+                filteredResults.forEach(result => {
+                    searchResults.innerHTML += `
+                        <div class="result-item">
+                            <h3>${result.title}</h3>
+                            <p>${result.description}</p>
+                        </div>
+                    `;
+                });
+            } else {
+                searchResults.innerHTML += `<p>No results found for your search.</p>`;
+            }
+        } else {
+            searchResults.innerHTML = `<p>No search query provided.</p>`;
+        }
+    </script>
+</body>
+</html>

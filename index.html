@@ -92,7 +92,7 @@
 					</span>
 				</section>
 				<!-- Section -->
-				<section>
+				<section id="features">
 					<!-- <header class="major">
 									<h1>Erat lacinia</h1>
 								</header> -->
@@ -486,11 +486,14 @@
 		<div id="sidebar">
 			<div class="inner">
 				<!-- Search -->
-				<section id="search" class="alt">
+				<form method="get" action="search.html">
+					<input type="text" name="query" id="query" placeholder="Search" />
+				</form>
+				<!-- <section id="search" class="alt">
 					<form method="post" action="#">
 						<input type="text" name="query" id="query" placeholder="Search" />
 					</form>
-				</section>
+				</section> -->
 				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
@@ -500,6 +503,8 @@
 						<li>
 							<span class="opener"><a href="index.html">Homepage</a></span>
 							<ul>
+								<li><a href="#banner">Introduction</a></li>
+								<li><a href="#features">Features</a></li>
 								<li><a href="#experience">Experience</a></li>
 								<li><a href="#education">Education</a></li>
 								<li><a href="#skills">Skills</a></li>
