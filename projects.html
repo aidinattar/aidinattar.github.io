@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Work in Progress</title>
     <meta charset="utf-8">
@@ -17,6 +18,7 @@
             color: #333;
             font-family: Arial, sans-serif;
         }
+
         .container {
             text-align: center;
             max-width: 600px;
@@ -25,32 +27,19 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
+
         h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
         }
+
         p {
             font-size: 1.2em;
             color: #555;
         }
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            color: #fff; /* Text color (white) */
-            background-color: #007bff; /* Background color (blue) */
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1em;
-            border: 1px solid #007bff; /* Optional: Add a border to match the background color */
-        }
-
-        .button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
-            border-color: #0056b3; /* Optional: Match border color on hover */
-        }
     </style>
 </head>
+
 <body class="is-preload">
     <!-- Wrapper -->
     <div id="wrapper">
@@ -61,10 +50,14 @@
                 <header id="header">
                     <a href="index.html" class="logo"><strong>Aidin Attar</strong> - Personal Website</a>
                     <ul class="icons">
-                        <li><a href="https://github.com/aidinattar" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-                        <li><a href="https://linkedin.com/in/aidinattar" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                        <li><a href="https://twitter.com" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="https://facebook.com" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="https://github.com/aidinattar" class="icon brands fa-github"><span
+                                    class="label">GitHub</span></a></li>
+                        <li><a href="https://linkedin.com/in/aidinattar" class="icon brands fa-linkedin"><span
+                                    class="label">LinkedIn</span></a></li>
+                        <li><a href="https://gitlab.com/aidinattar" class="icon brands fa-gitlab"><span
+                                    class="label">GitLab</span></a></li>
+                        <!-- <li><a href="https://twitter.com" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
+                        <!-- <li><a href="https://facebook.com" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li> -->
                         <li><a href="projects-it.html" class="button small">IT</a></li>
                     </ul>
                 </header>
@@ -73,7 +66,8 @@
                 <section>
                     <div class="container">
                         <h1>Work in Progress</h1>
-                        <p>This section of the site is currently under development. Please check back soon for updates and new content!</p>
+                        <p>This section of the site is currently under development. Please check back soon for updates
+                            and new content!</p>
                         <a href="index.html" class="button">Return to Homepage</a>
                     </div>
                 </section>
@@ -89,24 +83,121 @@
                         <input type="text" name="query" id="query" placeholder="Search" />
                     </form>
                 </section>
-
                 <!-- Menu -->
                 <nav id="menu">
                     <header class="major">
                         <h2>Menu</h2>
                     </header>
                     <ul>
-                        <li><a href="index.html">Homepage</a></li>
+                        <li>
+                            <span class="opener"><a href="index.html">Homepage</a></span>
+                            <ul>
+                                <li><a href="#experience">Experience</a></li>
+                                <li><a href="#education">Education</a></li>
+                                <li><a href="#skills">Skills</a></li>
+                                <li><a href="#interests">Interests</a></li>
+                                <!-- <li><a href="#awards">Awards</a></li> -->
+                            </ul>
+                        </li>
                         <li><a href="projects.html">Projects</a></li>
-                        <li><a href="contacts.html">Contact</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <!-- <li>
+                            <span class="opener">Submenu</span>
+                            <ul>
+                                <li><a href="#">Lorem Dolor</a></li>
+                                <li><a href="#">Ipsum Adipiscing</a></li>
+                                <li><a href="#">Tempus Magna</a></li>
+                                <li><a href="#">Feugiat Veroeros</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Etiam Dolore</a></li>
+                        <li><a href="#">Adipiscing</a></li>
+                        <li>
+                            <span class="opener">Another Submenu</span>
+                            <ul>
+                                <li><a href="#">Lorem Dolor</a></li>
+                                <li><a href="#">Ipsum Adipiscing</a></li>
+                                <li><a href="#">Tempus Magna</a></li>
+                                <li><a href="#">Feugiat Veroeros</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Maximus Erat</a></li>
+                        <li><a href="#">Sapien Mauris</a></li>
+                        <li><a href="#">Amet Lacinia</a></li> -->
                     </ul>
                 </nav>
+                <section>
+                    <header class="major">
+                        <h2>Latest Highlights</h2>
+                    </header>
+                    <div class="mini-posts">
+                        <article>
+                            <a href="https://github.com/aidinattar/snn" class="image">
+                                <img src="images/project2.png" alt="Spiking Neural Networks" />
+                            </a>
+                            <p>Exploring Spiking Neural Networks for temporal pattern recognition, using biologically
+                                inspired architectures and advanced training techniques.</p>
+                        </article>
+                        <article>
+                            <a href="https://github.com/aidinattar/info-bottleneck" class="image">
+                                <img src="images/info-bottleneck.png" alt="Information Bottleneck" />
+                            </a>
+                            <p>Investigated the Information Bottleneck method for analyzing trade-offs between
+                                representation compression and prediction accuracy in machine learning models.</p>
+                        </article>
+                        <article>
+                            <a href="https://github.com/aidinattar/VehicularNetworks_GT" class="image">
+                                <img src="images/vehicular-networks.png" alt="Vehicular Networks" />
+                            </a>
+                            <p>Developed simulations and models for vehicular networks using game theory to optimize
+                                communication and resource allocation strategies.</p>
+                        </article>
+                        <article>
+                            <a href="https://github.com/aidinattar/CSRNet-pytorch" class="image">
+                                <img src="images/csrnet.jpeg" alt="CSRNet for Crowd Counting" />
+                            </a>
+                            <p>Implemented CSRNet in PyTorch for crowd counting tasks, focusing on high-density
+                                population datasets and improving model accuracy and scalability.</p>
+                        </article>
+                    </div>
+                    <ul class="actions">
+                        <li><a href="#projects" class="button">See More Projects</a></li>
+                    </ul>
+                </section>
+                <!-- Section -->
+                <section>
+                    <header class="major">
+                        <h2>Get in touch</h2>
+                    </header>
+                    <p>If you’d like to connect, discuss collaborations, or have questions about my projects and
+                        research, feel free to reach out. I’m always open to interesting opportunities and conversations
+                        in the field of data science, artificial intelligence, and computational physics.</p>
+                    <ul class="contact">
+                        <li class="icon solid fa-envelope"><a
+                                href="mailto:attaraidin@gmail.com">attaraidin@gmail.com</a></li>
+                        <!-- <li class="icon solid fa-phone">(+39) 456-7890</li> -->
+                        <li class="icon solid fa-home">Ferrara, Italy<br /></li>
+                    </ul>
+                    <!-- Download CV Button -->
+                    <ul class="actions">
+                        <li><a href="files/CV_ENG.pdf" class="button icon solid fa-download" download>Download CV</a>
+                        </li>
+                    </ul>
 
+                    <!-- <li class="icon solid fa-linkedin"><a href="https://www.linkedin.com/in/aidinattar">linkedin.com/in/aidinattar</a></li> -->
+                    <!-- <li class="icon solid fa-github"><a href="https://github.com/aidinattar">github.com/aidinattar</a></li> -->
+                    </ul>
+                    <p>If you'd like to get in touch, feel free to <a href="contacts.html">use my contact form</a>.</p>
+
+                </section>
                 <!-- Footer -->
                 <footer id="footer">
                     <p class="copyright">
-                        &copy; 2024 Aidin Attar. All rights reserved. Images: <a href="https://unsplash.com">Unsplash</a>.
-                        Design: <a href="https://html5up.net">HTML5 UP</a>. Built with ❤️ by <a href="https://github.com/aidinattar">Aidin Attar</a>.
+                        &copy; 2024 Aidin Attar. All rights reserved. Images: <a
+                            href="https://unsplash.com">Unsplash</a>.
+                        Design: <a href="https://html5up.net">HTML5 UP</a>. Built with ❤️ by <a
+                            href="https://github.com/aidinattar">Aidin Attar</a>.
                     </p>
                 </footer>
             </div>
@@ -120,4 +211,5 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
