@@ -100,6 +100,7 @@ lines!(ax, t, fast, label = "Fast state")
 lines!(ax, t, slow, label = "Slow state")
 axislegend(ax, position = :rb)
 
+save(joinpath(@OUTPUT, "fast-slow-toy-plot.png"), fig)
 fig
 ```
 
@@ -118,7 +119,7 @@ fig
     </p>
   </div>
   <figure class="note-figure note-figure--compact">
-    <img src="/assets/notes/fast-slow-toy-plot.png" alt="Plot of input, fast state, and slow state generated from the toy model">
+    <img src="/assets/notes/fast-slow-adaptation/output/fast-slow-toy-plot.png" alt="Plot of input, fast state, and slow state generated from the toy model">
     <figcaption>The fast state tracks local variation, while the slow state lags and smooths.</figcaption>
   </figure>
 </section>
