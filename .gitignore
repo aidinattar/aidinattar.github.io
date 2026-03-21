@@ -1,0 +1,5 @@
+__site/
+.Franklin/
+node_modules/
+Manifest.toml
+.DS_Store
