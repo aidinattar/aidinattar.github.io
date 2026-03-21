@@ -22,10 +22,10 @@ I am grateful for the people, opportunities, and challenges that made the journe
 ~~~
 <div class="note-gallery note-gallery--graduation">
   <figure class="note-gallery__item">
-    <img src="/assets/notes/graduation-3.jpg" alt="Graduation day photo at the University of Padova">
+    <img src="/assets/notes/graduating-masters-degree/graduation-3.jpg" alt="Graduation day photo at the University of Padova">
   </figure>
   <figure class="note-gallery__item">
-    <img src="/assets/notes/graduation-1.jpg" alt="Portrait taken on graduation day at the University of Padova">
+    <img src="/assets/notes/graduating-masters-degree/graduation-1.jpg" alt="Portrait taken on graduation day at the University of Padova">
   </figure>
 </div>
 ~~~

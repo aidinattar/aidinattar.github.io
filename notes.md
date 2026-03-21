@@ -63,7 +63,7 @@
   <article class="card featured-card note-preview-card">
     <a class="note-preview-link note-preview-media" href="/notes/fast-slow-adaptation/" aria-label="Read Fast and slow adaptation in a toy dynamical system">
       <div class="card-image note-preview-image note-preview-image--plot">
-        <img src="/assets/notes/fast-slow-toy-plot.png" alt="Scientific plot of fast and slow adaptation dynamics">
+        <img src="/assets/notes/fast-slow-adaptation/fast-slow-toy-plot.png" alt="Scientific plot of fast and slow adaptation dynamics">
       </div>
     </a>
     <div class="note-preview-body">
@@ -78,7 +78,7 @@
   <article class="card featured-card note-preview-card">
     <a class="note-preview-link note-preview-media" href="/notes/graduating-masters-degree/" aria-label="Read Graduating with my Master's degree">
       <div class="card-image note-preview-image note-preview-image--photo">
-        <img src="/assets/notes/graduation-3.jpg" alt="Graduation portrait from the University of Padova">
+        <img src="/assets/notes/graduating-masters-degree/graduation-3.jpg" alt="Graduation portrait from the University of Padova">
       </div>
     </a>
     <div class="note-preview-body">

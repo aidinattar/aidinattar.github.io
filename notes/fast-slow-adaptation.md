@@ -195,7 +195,7 @@ Two figures from Gao et al. are useful here because they connect neuronal timesc
 
 ~~~
 <figure class="note-figure note-figure--paper">
-  <img src="/assets/notes/elife-61277-fig1.jpg" alt="Figure on neuronal timescales from Gao et al. eLife 2020">
+  <img src="/assets/notes/fast-slow-adaptation/elife-61277-fig1.jpg" alt="Figure on neuronal timescales from Gao et al. eLife 2020">
   <figcaption>Selected figure from Gao et al., <em>eLife</em> (2020), “Neuronal timescales are functionally dynamic and shaped by cortical microarchitecture”, used under CC BY 4.0.</figcaption>
 </figure>
 ~~~
@@ -204,7 +204,7 @@ In that sense, the neuroscientific analogy is helpful not because it proves anyt
 
 ~~~
 <figure class="note-figure note-figure--paper">
-  <img src="/assets/notes/elife-61277-fig4.jpg" alt="Figure on functional neuronal timescales from Gao et al. eLife 2020">
+  <img src="/assets/notes/fast-slow-adaptation/elife-61277-fig4.jpg" alt="Figure on functional neuronal timescales from Gao et al. eLife 2020">
   <figcaption>Another selected figure from Gao et al., <em>eLife</em> (2020), included here as a visual reference for how neuronal timescales can vary across structure and function. CC BY 4.0.</figcaption>
 </figure>
 ~~~
