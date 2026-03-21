@@ -7,6 +7,7 @@ ignore = [
   "Project.toml",
   "Manifest.toml",
   ".gitignore",
+  "google4083dfcedcc5d554.html",
 ]
 
 generate_rss = false

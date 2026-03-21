@@ -1,5 +1,6 @@
 __site/
 .Franklin/
+_rss/
 node_modules/
 Manifest.toml
 .DS_Store
