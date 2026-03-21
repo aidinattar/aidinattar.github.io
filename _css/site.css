@@ -235,7 +235,9 @@ img {
   flex-wrap: wrap;
   align-items: center;
   gap: 1.1rem 1.8rem;
-  margin-top: 1.2rem;
+  margin-top: 0;
+  justify-content: flex-end;
+  align-self: auto;
 }
 
 .footer-affiliation {
@@ -563,22 +565,9 @@ h3 {
 
 .note-intro {
   margin-top: 0;
-  max-width: 56rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.3rem 1.45rem;
   background:
     linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(232, 241, 242, 0.92)),
     var(--surface-strong);
-}
-
-.note-intro h1 {
-  font-size: clamp(1.9rem, 4.4vw, 2.85rem);
-  margin-bottom: 0.55rem;
-}
-
-.note-intro .eyebrow {
-  margin-bottom: 0.7rem;
 }
 
 .note-intro--warm {
@@ -588,9 +577,8 @@ h3 {
 }
 
 .note-intro__meta {
-  max-width: 50rem;
   margin: 0;
-  font-size: 1.02rem;
+  font-size: 1.08rem;
 }
 
 .note-intro .chip-list {
@@ -617,42 +605,6 @@ h3 {
   color: var(--muted);
   font-size: 0.93rem;
   text-align: center;
-}
-
-.franklin-content > p,
-.franklin-content > ul,
-.franklin-content > ol,
-.franklin-content > h2,
-.franklin-content > h3,
-.franklin-content > pre,
-.franklin-content > blockquote,
-.franklin-content > .equation-stack,
-.franklin-content > .split-grid,
-.franklin-content > .note-figure,
-.franklin-content > .note-box,
-.franklin-content > .note-plot-block {
-  max-width: 56rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.franklin-content > p {
-  line-height: 1.64;
-}
-
-.franklin-content > ul,
-.franklin-content > ol {
-  padding-left: 1.35rem;
-}
-
-.franklin-content > ul li,
-.franklin-content > ol li {
-  line-height: 1.6;
-}
-
-.franklin-content > h2 {
-  margin-top: 2.3rem;
-  margin-bottom: 0.75rem;
 }
 
 .note-figure--compact {
@@ -934,12 +886,13 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.15rem;
+  gap: 0.05rem;
 }
 
 .site-footer p {
-  margin: 0.35rem 0;
+  margin: 0.18rem 0;
   font-size: 0.92rem;
+  line-height: 1.35;
 }
 
 .site-footer__note {
@@ -1118,29 +1071,6 @@ h3 {
 
   .note-figure {
     padding: 0.65rem;
-  }
-
-  .note-intro {
-    padding: 1.1rem 1.15rem;
-  }
-
-  .note-intro h1 {
-    font-size: clamp(1.75rem, 7.5vw, 2.35rem);
-  }
-
-  .franklin-content > p,
-  .franklin-content > ul,
-  .franklin-content > ol,
-  .franklin-content > h2,
-  .franklin-content > h3,
-  .franklin-content > pre,
-  .franklin-content > blockquote,
-  .franklin-content > .equation-stack,
-  .franklin-content > .split-grid,
-  .franklin-content > .note-figure,
-  .franklin-content > .note-box,
-  .franklin-content > .note-plot-block {
-    max-width: 100%;
   }
 
   .equation-card {
