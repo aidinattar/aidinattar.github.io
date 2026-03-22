@@ -73,7 +73,7 @@ So the fast state moves quickly toward the current input, while the slow state c
 
 ## Julia sketch
 
-```julia
+```julia:./ex1
 using CairoMakie
 
 T = 200
