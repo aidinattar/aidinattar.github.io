@@ -40,6 +40,7 @@ jobs:
         run: |
           cp google4083dfcedcc5d554.html __site/google4083dfcedcc5d554.html
           cp robots.txt __site/robots.txt
+          touch __site/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
