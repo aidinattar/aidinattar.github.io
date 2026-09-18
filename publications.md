@@ -3,9 +3,7 @@
 
 # Publications
 
-I am currently building my publication record. In the meantime, this page collects thesis work, ongoing research directions, and selected academic material.
-
-
+This page collects my publications, thesis work, ongoing research directions, and selected academic material.
 
 ## Journal Articles
 
@@ -15,12 +13,43 @@ I am currently building my publication record. In the meantime, this page collec
 </div>
 ~~~
 
-## Conference Papers
+**## Conference Papers**
 
 ~~~
-<div class="card">
-  <p>No conference papers listed yet.</p>
+
+<div class="card publication-card">
+
+  <span class="card-meta">Accepted Conference Paper · 2026</span>
+
+  <h3>Predictive Suppression Layers for Communication-Efficient Spiking Neural Networks</h3>
+
+  <p><strong>Aidin Attar</strong> and Michele Rossi</p>
+
+  <p>
+    1st Neuromorphic Physical Layer Signal Processing for Wireless Systems Workshop
+    (NeuroPHY 2026), co-located with EWSN 2026.
+  </p>
+
+  <p>
+    We introduce predictive coding layers for spiking neural networks that trade
+    additional local processing for reduced inter-layer communication. Predictive
+    suppression uses prediction error to selectively suppress predictable activity,
+    yielding communication-efficient representations while preserving, and in our
+    experiments improving, task performance.
+  </p>
+
+  <p>
+    <em>Accepted; to appear in the EWSN 2026 proceedings.</em>
+  </p>
+
+  <p>
+    <a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv</a>
+    ·
+    <a href="https://doi.org/XXXXXXXX">DOI</a>
+  </p>
+
 </div>
+
 ~~~
 
 ## Talks and Presentations
