@@ -13,10 +13,9 @@ This page collects my publications, thesis work, ongoing research directions, an
 </div>
 ~~~
 
-**## Conference Papers**
+## Conference Papers
 
 ~~~
-
 <div class="card publication-card">
 
   <span class="card-meta">Accepted Conference Paper · 2026</span>
@@ -42,14 +41,13 @@ This page collects my publications, thesis work, ongoing research directions, an
     <em>Accepted; to appear in the EWSN 2026 proceedings.</em>
   </p>
 
-  <p>
+  <!-- <p>
     <a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv</a>
     ·
     <a href="https://doi.org/XXXXXXXX">DOI</a>
-  </p>
+  </p> -->
 
 </div>
-
 ~~~
 
 ## Talks and Presentations
