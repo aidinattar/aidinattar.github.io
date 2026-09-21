@@ -18,7 +18,7 @@ This page collects my publications, thesis work, ongoing research directions, an
 ~~~
 <div class="card publication-card">
 
-  <span class="card-meta">Accepted Conference Paper · 2026</span>
+  <span class="card-meta">Conference Paper · 2026</span>
 
   <h3>Predictive Suppression Layers for Communication-Efficient Spiking Neural Networks</h3>
 
@@ -38,7 +38,7 @@ This page collects my publications, thesis work, ongoing research directions, an
   </p>
 
   <p>
-    <em>Accepted; to appear in the EWSN 2026 proceedings.</em>
+    In <em>Proceedings of EWSN 2026</em>, pages 309 - 314
   </p>
 
   <p>
