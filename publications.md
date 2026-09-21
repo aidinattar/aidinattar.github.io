@@ -41,11 +41,11 @@ This page collects my publications, thesis work, ongoing research directions, an
     <em>Accepted; to appear in the EWSN 2026 proceedings.</em>
   </p>
 
-  <!-- <p>
-    <a href="https://arxiv.org/abs/XXXX.XXXXX">arXiv</a>
+  <p>
+    <a href="https://arxiv.org/abs/2609.21583">arXiv</a>
     ·
-    <a href="https://doi.org/XXXXXXXX">DOI</a>
-  </p> -->
+    <a href="https://doi.org/10.3217/za2v-bn54">DOI</a>
+  </p>
 
 </div>
 ~~~
