@@ -63,7 +63,7 @@
   <article class="card featured-card note-preview-card">
     <a class="note-preview-link note-preview-media" href="/notes/fast-slow-adaptation/" aria-label="Read Fast adaptation and selective consolidation">
       <div class="card-image note-preview-image note-preview-image--plot">
-        <img src="/assets/notes/fast-slow-adaptation/output/selective-consolidation-toy.png" alt="Illustrative plot of fast adaptation and selective persistence in a continuous stream">
+        <img src="/assets/notes/fast-slow-adaptation/selective-consolidation-toy.png" alt="Illustrative plot of fast adaptation and selective persistence in a continuous stream">
       </div>
     </a>
     <div class="note-preview-body">

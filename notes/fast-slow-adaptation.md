@@ -20,81 +20,57 @@ A system that adapts rapidly can follow a changing environment, but the same pla
 The interesting case is therefore not simply “fast learning versus slow learning”. It is what happens when the two coexist.
 ## Fast and persistent components
 A minimal abstraction is to write an adaptive state as the sum of a labile component and a persistent one,
-\[
-
+~~~
+<div class="equation-card"><code>
 w_t = w_t^{F} + w_t^{P}.
-
-\]
+</code></div>
+~~~
 The fast component can react strongly to recent evidence and can also decay,
 
-w\_{t+1}^{F}
+~~~
+<div class="equation-card"><code>
+w_{t+1}^{F} = (1-lambda_F) w_t^{F} + eta_F u_t.
+</code></div>
+~~~
 
-\=
-
-(1-\lambda_F)w_t^{F}
-
-\+
-
-\eta_F u_t,
-
-where $u_t$ is the update induced by the current observation.
+where <code>u_t</code> is the update induced by the current observation.
 If the persistent component simply receives a smaller version of the same update,
 
-w\_{t+1}^{P}
-
-\=
-
-w_t^{P}
-
-\+
-
-\eta_P u_t,
-
-\qquad
-
-\eta_P \ll \eta_F,
+~~~
+<div class="equation-card"><code>
+w_{t+1}^{P} = w_t^{P} + eta_P u_t, ; eta_P &lt; eta_F.
+</code></div>
+~~~
 
 then the model has two timescales, but not yet a mechanism for deciding what deserves long-term storage. Every fluctuation eventually leaks into the slow state. The timescale changes, but the selectivity problem remains.
 A more useful abstraction is
 
-w\_{t+1}^{P}
+~~~
+<div class="equation-card"><code>
+w_{t+1}^{P} = w_t^{P} + eta_P g_t u_t.
+</code></div>
+~~~
 
-\=
-
-w_t^{P}
-
-\+
-
-\eta_P g_t u_t,
-
-where $g_t$ expresses whether the current modification is supported by enough evidence to become persistent.
+where <code>g_t</code> expresses whether the current modification is supported by enough evidence to become persistent.
 This distinction is close in spirit to ideas from metaplasticity and synaptic consolidation. Metaplastic changes can alter the *future susceptibility* of a synapse to plasticity without immediately changing its expressed efficacy [3]. Synaptic tagging and capture similarly separates the induction of a transient local state from the later stabilization of a long-lasting modification [4]. The computational question is analogous: an update can be available without immediately being committed.
 ## Familiarity is not the memory itself
-One way of thinking about $g_t$ is through **familiarity**. Here familiarity does not mean an explicit lookup saying that a particular sample has been seen before. It is better understood as a dynamical estimate that the current activity belongs to a structure that has been encountered repeatedly.
+One way of thinking about <code>g_t</code> is through **familiarity**. Here familiarity does not mean an explicit lookup saying that a particular sample has been seen before. It is better understood as a dynamical estimate that the current activity belongs to a structure that has been encountered repeatedly.
 A generic trace can be written as
 
-m\_{t+1}
+~~~
+<div class="equation-card"><code>
+m_{t+1} = (1-beta)m_t + beta phi_t.
+</code></div>
+~~~
 
-\=
+where <code>phi_t</code> is instantaneous evidence of recurrence or compatibility with previously established dynamics.
+In the simplest toy system, <code>phi_t</code> could be related to the distance between a fast state and a slower reference,
 
-(1-\beta)m_t
-
-\+
-
-\beta \phi_t,
-
-where $\phi_t$ is instantaneous evidence of recurrence or compatibility with previously established dynamics.
-In the simplest toy system, $\phi_t$ could be related to the distance between a fast state and a slower reference,
-
-\phi_t
-
-\=
-
-\exp\left(
-
--\frac{\\|f_t-s_t\\|^2}{\tau^2}
-
-\right).
+~~~
+<div class="equation-card"><code>
+phi_t = exp(-norm(f_t - s_t)^2 / tau^2).
+</code></div>
+~~~
 
 That equation is not meant as a final definition. Its role is only to make one point explicit: **familiarity is a state accumulated through time**, not the same thing as an individual prediction error and not the same thing as the stored content.
 This separation matters. A familiar input does not necessarily require a new memory update, and a large error does not necessarily indicate that something should be remembered. A volatile regime can generate strong and repeated errors while still being a poor candidate for persistent storage. Conversely, a recurring regime can become increasingly predictable while still providing evidence that a particular representation should be stabilized.
@@ -103,7 +79,7 @@ Recent theoretical work on recall-gated consolidation develops a closely related
 The original version of this note used the simplest possible fast/slow tracker. A slightly richer toy picture is more useful here.
 Imagine a stream containing a recurring regime, mixed with temporary excursions. A fast state follows most of these changes. A persistent state reacts much less to isolated deviations and changes primarily when recurrent evidence has accumulated.
 The plot below is illustrative rather than experimental: it only visualizes the separation between responsiveness and persistence.
-```julia:./selective_toy
+```julia
 using CairoMakie
 T = 420
 t = collect(1:T)
@@ -254,12 +230,12 @@ Label(
     halign = :left,
     tellwidth = false,
 )
-save(joinpath(@OUTPUT, "selective-consolidation-toy.png"), fig, px_per_unit = 2)
+save("selective-consolidation-toy.png", fig, px_per_unit = 2)
 fig
 ```
 ~~~
 <figure class="note-figure">
-  <img src="/assets/notes/fast-slow-adaptation/output/selective-consolidation-toy.png"
+  <img src="/assets/notes/fast-slow-adaptation/selective-consolidation-toy.png"
        alt="Illustrative plot showing a fast adaptive state and a selectively changing persistent state in a continuous stream">
   <figcaption>
     Illustrative two-timescale dynamics. The upper panel contrasts fast adaptation with selective persistence; the lower panel shows the slower familiarity variable and the resulting consolidation gate.
@@ -276,32 +252,24 @@ Selective consolidation adds another layer to that picture: the transition towar
 ## Why spiking systems are a natural substrate
 The same idea becomes particularly natural in spiking neural networks because temporal state is already part of the model.
 A synapse can carry an eligibility-like trace,
-\[
-
-e\_{ij}(t),
-
-\]
-produced by local pre- and postsynaptic activity. A modulatory signal $M_j(t)$ can then determine whether that local trace should induce a weight change,
-\[
-
-\Delta w\_{ij}(t)
-
-\propto
-
-M_j(t)e\_{ij}(t).
-
-\]
+~~~
+<div class="equation-card"><code>
+e_{ij}(t)
+</code></div>
+~~~
+produced by local pre- and postsynaptic activity. A modulatory signal <code>M_j(t)</code> can then determine whether that local trace should induce a weight change,
+~~~
+<div class="equation-card"><code>
+Delta w_{ij}(t) proportional to M_j(t)e_{ij}(t).
+</code></div>
+~~~
 This is the general structure of three-factor learning rules, which connect Hebbian or spike-timing-dependent eligibility with a third signal related to reward, novelty, error, or behavioral outcome [6,7]. Related ideas also appear in e-prop, where eligibility traces retain the part of the temporal gradient that can be computed locally in recurrent spiking networks, avoiding explicit backpropagation through the entire history [8].
 A consolidation variable introduces an additional timescale,
-\[
-
-\Delta w\_{ij}^{P}(t)
-
-\propto
-
-g_j(t)M_j(t)e\_{ij}(t).
-
-\]
+~~~
+<div class="equation-card"><code>
+Delta w_{ij}^{P}(t) proportional to g_j(t)M_j(t)e_{ij}(t).
+</code></div>
+~~~
 The important point is not the extra multiplicative term by itself. It is the interpretation: the same event-driven machinery that supports online temporal credit assignment can, in principle, also support a slower decision about whether a modification remains labile or becomes persistent.
 Recent work has begun to explore related multi-timescale gating ideas directly in deep SNNs, for example by combining eligibility traces with a slower astrocyte-inspired plasticity gate [9]. This makes the distinction between a generic “slow learning rate” and a genuine slow *state that regulates plasticity* particularly relevant.
 The attraction of SNNs here is therefore not simply that spikes are biologically inspired. It is that several of the ingredients needed by the computational picture already have natural counterparts: membrane dynamics, synaptic traces, adaptive thresholds, sparse events, and local plasticity operating over different timescales.
@@ -309,23 +277,11 @@ The attraction of SNNs here is therefore not simply that spikes are biologically
 Seen this way, selective consolidation is not a particular network architecture. It is a way of organizing plasticity.
 The fast part of the system remains sensitive to recent evidence. A slower state accumulates information about recurrence or stability. Persistent plasticity is then allowed only when the two are consistent.
 One compact way to summarize the idea is
-\[
-
-\underbrace{e\_{ij}(t)}\_{\text{local eligibility}}
-
-\\;\times\\;
-
-\underbrace{M_j(t)}\_{\text{learning signal}}
-
-\\;\times\\;
-
-\underbrace{g_j(t)}\_{\text{consolidation state}}
-
-\quad\longrightarrow\quad
-
-\text{persistent synaptic change}.
-
-\]
+~~~
+<div class="equation-card"><code>
+local eligibility e_ij(t) x learning signal M_j(t) x consolidation state g_j(t) -&gt; persistent synaptic change.
+</code></div>
+~~~
 This resembles several ideas that already exist in neuroscience — metaplasticity, tagging, eligibility traces, multi-state synapses — without being identical to any one of them. The common theme is that **a synaptic modification does not have to become permanent at the moment it is first induced**.
 For continuous learning, that distinction is useful because the stream itself can provide evidence about what deserves persistence. Repetition, temporal consistency, low surprise, or agreement across encounters may all contribute to that evidence. The exact choice is model-dependent; the conceptual separation is not.
 In this view, forgetting is not only a failure to protect old information. Some forgetting is necessary. A useful adaptive system should be able to let transient changes disappear while allowing recurrent structure to move gradually onto a slower timescale.
