@@ -48,6 +48,7 @@
       </span>
     </h3>
     <ul class="contact-list">
+      <li><a href="https://scholar.google.com/citations?user=lo-YUIMAAAAJ&amp;hl=it">Google Scholar</a></li>
       <li><a href="https://github.com/aidinattar">GitHub</a></li>
       <li><a href="https://linkedin.com/in/aidin-attar">LinkedIn</a></li>
     </ul>

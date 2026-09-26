@@ -148,5 +148,6 @@
 
 - [GitHub](https://github.com/aidinattar)
 - [LinkedIn](https://linkedin.com/in/aidin-attar)
+- [Google Scholar](https://scholar.google.com/citations?user=lo-YUIMAAAAJ&hl=it)
 - [Download CV (EN)](/assets/pdf/Aidin_Attar_CV_EN.pdf)
 - [Download CV (IT)](/assets/pdf/Aidin_Attar_CV_IT.pdf)

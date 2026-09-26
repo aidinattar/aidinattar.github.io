@@ -14,6 +14,7 @@
       <a class="button button-secondary" href="/projects/">Projects</a>
       <a class="button button-secondary" href="/publications/">Publications</a>
       <a class="button button-secondary" href="/cv/">CV</a>
+      <a class="button button-secondary" href="https://scholar.google.com/citations?user=lo-YUIMAAAAJ&amp;hl=it">Google Scholar</a>
       <a class="button button-secondary" href="https://github.com/aidinattar">GitHub</a>
       <a class="button button-secondary" href="mailto:attaraidin@gmail.com">Email</a>
     </div>
