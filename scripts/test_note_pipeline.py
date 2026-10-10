@@ -79,6 +79,37 @@ class NotePipelineTest(unittest.TestCase):
         normalizer.normalize_one(note)
         self.assertIn('published = false', note.read_text())
 
+    def test_cms_raw_html_intro_is_wrapped_and_idempotent(self):
+        note = self.notes / 'intro.md'
+        body = ("<section class=\"page-intro note-intro\">\n"
+                "  <h1>Title</h1>\n"
+                "  <div class=\"chip-list\"><span>Tag</span></div>\n"
+                "</section>\n\n"
+                "An equation $w_t$ and an image below.\n\n"
+                "$$\n\\alpha + \\beta\n$$\n")
+        note.write_text("+++\ntitle = 'A note'\npublished = true\n+++\n" + body)
+        meta, changed = normalizer.normalize_one(note)
+        self.assertTrue(changed)
+        actual = note.read_text()
+        self.assertIn("~~~\n<section class=\"page-intro note-intro\">", actual)
+        self.assertIn("</section>\n~~~\n\nAn equation $w_t$", actual)
+        self.assertIn("$$\n\\alpha + \\beta\n$$", actual)
+        self.assertFalse(normalizer.normalize_one(note)[1])
+
+    def test_existing_html_fences_and_code_blocks_are_unchanged(self):
+        body = ("~~~\n<section><h1>Existing</h1></section>\n~~~\n"
+                "\n```html\n<section><h1>Code sample</h1></section>\n```\n"
+                "\n~~~\n<figure><img src=\"/assets/a.png\"></figure>\n~~~\n")
+        self.assertEqual(normalizer.wrap_unfenced_html(body), body)
+
+    def test_bad_unclosed_html_is_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'Unclosed raw HTML'):
+            normalizer.wrap_unfenced_html("<section>\nUnclosed\n")
+
+    def test_raw_figure_html_is_wrapped(self):
+        src = '<figure class="note-figure">\n<img src="/assets/img.png">\n</figure>\n'
+        self.assertEqual(normalizer.wrap_unfenced_html(src), '~~~\n' + src + '~~~\n')
+
     def test_invalid_unquoted_date_fails_loudly(self):
         note = self.notes / 'date.md'
         note.write_text('+++\ntitle = "Date"\ndate = 2026-10-10\n+++\nBody\n')

@@ -14,6 +14,7 @@ topics = [
 order = 1.0
 published = true
 +++
+~~~
 <section class="page-intro note-intro">
   <p class="eyebrow">Research note</p>
   <h1>Synaptic balance: from local rescaling to global order</h1>
@@ -27,6 +28,7 @@ published = true
     <span class="chip">Neuromorphic computing</span>
   </div>
 </section>
+~~~
 
 A neural network's weights are not uniquely determined by the function it computes. Two networks can produce exactly the same outputs, for every input, while assigning very different magnitudes to their internal connections. This is particularly clear in networks with positively homogeneous activations, such as ReLU, where some changes to the incoming weights of a neuron can be compensated by opposite changes to its outgoing weights.
 

@@ -4,8 +4,9 @@
 Pages CMS can output valid TOML literal strings ('like this'); Franklin's +++
 headers are Julia expressions and require Julia-compatible string syntax.
 
-This script touches only a note's +++ header, unless --repair-image-paths is
-explicitly requested. It never modifies the actual prose, code or math.
+This script normalizes the +++ header and wraps standalone HTML blocks in
+Franklin raw-HTML delimiters when the CMS saved them without wrappers. It
+never changes prose, formulas or code blocks.
 """
 from __future__ import annotations
 
@@ -117,10 +118,81 @@ def check_images(path: Path, meta: dict, body: str, repair: bool = False) -> str
     return body
 
 
+# Pages CMS writes plain HTML verbatim in Markdown code fields, but Franklin
+# requires standalone HTML blocks to be surrounded by ~~~ fences. Existing
+# note files already have these fences; newly created CMS notes may not.
+RAW_HTML_START = re.compile(
+    r'^ {0,3}<(?P<tag>section|figure|div|aside|table|details|picture|video|audio|header|footer|nav)\b',
+    re.I,
+)
+CODE_FENCE = re.compile(r'^ {0,3}(?P<marker>`{3,}|~{3,})(?P<suffix>[^\r\n]*)$')
+
+
+def wrap_unfenced_html(body: str) -> str:
+    """Wrap *complete* top-level HTML blocks, leaving other syntax untouched.
+
+    We intentionally do not parse HTML inside Markdown code fences or inside
+    existing Franklin ~~~ raw-HTML blocks. Incomplete/malformed blocks are
+    rejected with an actionable error instead of silently rendering as text.
+    """
+    lines = body.splitlines(keepends=True)
+    output: list[str] = []
+    in_fence: tuple[str, int] | None = None
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        stripped = line.strip()
+        match_fence = CODE_FENCE.match(line.rstrip('\r\n'))
+        if in_fence is not None:
+            output.append(line)
+            if match_fence and match_fence.group('marker')[0] == in_fence[0] and len(match_fence.group('marker')) >= in_fence[1] and not match_fence.group('suffix').strip():
+                in_fence = None
+            i += 1
+            continue
+        if match_fence:
+            in_fence = (match_fence.group('marker')[0], len(match_fence.group('marker')))
+            output.append(line)
+            i += 1
+            continue
+        begin = RAW_HTML_START.match(line)
+        if not begin:
+            output.append(line)
+            i += 1
+            continue
+        tag = begin.group('tag')
+        tokens = re.compile(r'<(/?)' + re.escape(tag) + r'\b[^>]*>', re.I)
+        depth = 0
+        last = i
+        found = False
+        # Find the entire block, handling nested occurrences of the same tag.
+        for j in range(i, len(lines)):
+            for element in tokens.finditer(lines[j]):
+                if element.group(1):
+                    depth -= 1
+                elif not element.group(0).endswith('/>'):
+                    depth += 1
+                if depth == 0:
+                    last = j
+                    found = True
+                    break
+            if found:
+                break
+        if not found:
+            raise ValueError(f'Unclosed raw HTML <{tag}> in note near body line {i + 1}; close the tag or use ~~~ delimiters')
+        newline = '\r\n' if '\r\n' in line else '\n'
+        output.append('~~~' + newline)
+        output.extend(lines[i:last + 1])
+        if output[-1] and not output[-1].endswith(('\n', '\r')):
+            output.append(newline)
+        output.append('~~~' + newline)
+        i = last + 1
+    return ''.join(output)
+
+
 def normalize_one(path: Path, repair_image_paths: bool = False) -> tuple[dict, bool]:
     meta, source, match = read_note(path)
     frontmatter = '\n'.join(f'{key} = {julia_literal(value)}' for key, value in meta.items())
-    body = source[match.end():]
+    body = wrap_unfenced_html(source[match.end():])
     if meta.get('published', True):
         body = check_images(path, meta, body, repair_image_paths)
     newline = '\r\n' if '\r\n' in match.group(0) else '\n'
