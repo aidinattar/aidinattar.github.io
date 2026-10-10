@@ -1,12 +1,17 @@
 +++
-title = "Synaptic balance: from local rescaling to global order"
-description = "On function-preserving changes of synaptic weights, local regularization, and the emergence of a unique balanced network."
-summary = "On function-preserving changes of synaptic weights, local regularization, and the emergence of a unique balanced network."
-category = "Research Note"
-date = "2026-10-10"
-image = "/assets/local-to-global-balancing.png"
-topics = ["Synaptic balance", "Local optimization", "Neural network symmetries", "Neuromorphic computing"]
-order = 2.0
+title = 'Synaptic balance: from local rescaling to global order'
+description = 'On function-preserving changes of synaptic weights, local regularization, and the emergence of a unique balanced network.'
+summary = 'On function-preserving changes of synaptic weights, local regularization, and the emergence of a unique balanced network.'
+category = 'Research Note'
+date = '2026-10-10'
+image = '/assets/synaptic-balance-from-local-rescaling-to-global-order.svg'
+topics = [
+	'Synaptic balance',
+	'Local optimization',
+	'Neural network symmetries',
+	'Neuromorphic computing',
+]
+order = 1.0
 published = true
 +++
 <section class="page-intro note-intro">
