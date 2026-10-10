@@ -33,6 +33,9 @@ jobs:
       - name: Instantiate project
         run: julia --project=. -e 'using Pkg; Pkg.instantiate()'
 
+      - name: Generate pages from Pages CMS content
+        run: python3 scripts/build_content.py
+
       - name: Build Franklin site
         run: julia --project=. -e 'using Franklin; optimize(clear=true)'
 

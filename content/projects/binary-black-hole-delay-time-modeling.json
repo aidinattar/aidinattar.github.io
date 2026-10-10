@@ -1,0 +1,10 @@
+{
+  "title": "Binary Black Hole Delay-Time Modeling",
+  "category": "Astrophysical modeling",
+  "summary": "Computational work on delay-time distributions and related modeling questions in binary black hole systems.",
+  "details": "",
+  "repository": "https://github.com/aidinattar/BBH-Delay-Time",
+  "featured": false,
+  "home": false,
+  "order": 8
+}

@@ -1,0 +1,10 @@
+{
+  "title": "C++ Particle Reconstruction",
+  "category": "C++ and scientific computing",
+  "summary": "Scientific computing work in C++ focused on particle reconstruction and data-processing pipelines.",
+  "details": "",
+  "repository": "https://github.com/aidinattar/cxx-particle-reco",
+  "featured": false,
+  "home": false,
+  "order": 10
+}

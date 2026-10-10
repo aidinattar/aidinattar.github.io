@@ -1,0 +1,10 @@
+{
+  "title": "Spiking Neural Network Experiments",
+  "category": "Neuromorphic learning",
+  "summary": "Experimental work on spiking neural networks, with attention to STDP, reward-modulated learning,\n      and neuromorphic computation.",
+  "details": "",
+  "repository": "https://github.com/aidinattar/snn",
+  "featured": false,
+  "home": false,
+  "order": 5
+}

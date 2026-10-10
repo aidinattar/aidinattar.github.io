@@ -1,0 +1,16 @@
+{
+  "title": "Predictive Suppression Layers for Communication-Efficient Spiking Neural Networks",
+  "authors": [
+    "Aidin Attar",
+    "Michele Rossi"
+  ],
+  "type": "conference",
+  "year": 2026,
+  "venue": "1st Neuromorphic Physical Layer Signal Processing for Wireless Systems Workshop (NeuroPHY 2026), co-located with EWSN 2026",
+  "proceedings": "Proceedings of EWSN 2026",
+  "pages": "309–314",
+  "doi": "10.3217/za2v-bn54",
+  "arxiv": "2609.21583",
+  "abstract": "We introduce predictive coding layers for spiking neural networks that trade additional local processing for reduced inter-layer communication. Predictive suppression uses prediction error to selectively suppress predictable activity, yielding communication-efficient representations while preserving, and in our experiments improving, task performance.",
+  "published": true
+}

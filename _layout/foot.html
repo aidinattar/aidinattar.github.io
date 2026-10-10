@@ -2,7 +2,8 @@
     <footer class="site-footer">
       <div class="site-footer__inner">
         <div class="site-footer__meta">
-          <p>Research website of Aidin Attar.</p>
+          <p class="site-footer__name">Aidin Attar</p>
+          <p class="site-footer__role">PhD Student · University of Padova</p>
           <p>
             <a href="https://github.com/aidinattar">GitHub</a>
             <span class="footer-sep">·</span>
@@ -12,7 +13,7 @@
             <span class="footer-sep">·</span>
             <a href="mailto:attaraidin@gmail.com">Email</a>
           </p>
-          <p class="site-footer__note">Built with Franklin.jl.</p>
+          <p class="site-footer__note">Built with Franklin.jl · Content managed with Pages CMS</p>
         </div>
         <div class="footer-affiliations" aria-label="Academic affiliations">
           <a
@@ -41,32 +42,6 @@
       </div>
     </footer>
   </div>
-  <script>
-    (() => {
-      const toggle = document.querySelector(".site-nav-toggle");
-      const nav = document.getElementById("site-nav");
-
-      if (!toggle || !nav) return;
-
-      const closeMenu = () => {
-        toggle.setAttribute("aria-expanded", "false");
-        nav.classList.remove("is-open");
-      };
-
-      toggle.addEventListener("click", () => {
-        const isOpen = toggle.getAttribute("aria-expanded") === "true";
-        toggle.setAttribute("aria-expanded", String(!isOpen));
-        nav.classList.toggle("is-open", !isOpen);
-      });
-
-      nav.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", closeMenu);
-      });
-
-      window.addEventListener("resize", () => {
-        if (window.innerWidth > 760) closeMenu();
-      });
-    })();
-  </script>
+  <script defer src="/assets/js/site.js"></script>
 </body>
 </html>

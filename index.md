@@ -75,28 +75,7 @@ I am especially interested in approaches that move beyond purely global optimiza
 
 ## Selected projects
 
-~~~
-<div class="card-grid">
-  <article class="card">
-    <span class="card-meta">Sensing and machine learning</span>
-    <h3>Human Activity Recognition with mmWave Radar</h3>
-    <p>Activity recognition from mmWave radar data, combining signal processing and machine learning on real-world motion measurements across multiple subjects and environments.</p>
-    <p><a href="https://github.com/aidinattar/radio-wave-activity-detection">View repository</a></p>
-  </article>
-  <article class="card">
-    <span class="card-meta">Efficient audio models</span>
-    <h3>Small-Footprint Keyword Spotting</h3>
-    <p>A compact keyword spotting pipeline based on convolutional neural networks, designed for efficient audio classification in constrained settings.</p>
-    <p><a href="https://github.com/aidinattar/AudioKWS">View repository</a></p>
-  </article>
-  <article class="card">
-    <span class="card-meta">Automation and tooling</span>
-    <h3>Lab Automation for Shared Research Spaces</h3>
-    <p>An automation tool for everyday lab workflows, built to support practical coordination and lightweight infrastructure tasks in a shared research environment.</p>
-    <p><a href="https://github.com/aidinattar/deilabs-bot">View repository</a></p>
-  </article>
-</div>
-~~~
+{{insert generated/home-projects.html}}
 
 [Browse all projects](/projects/)
 

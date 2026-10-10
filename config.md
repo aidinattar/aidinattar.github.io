@@ -4,6 +4,8 @@ mintoclevel = 2
 
 ignore = [
   "node_modules/",
+  "content/",
+  "scripts/",
   "Project.toml",
   "Manifest.toml",
   ".gitignore",

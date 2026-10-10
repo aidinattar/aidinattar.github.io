@@ -1,0 +1,10 @@
+{
+  "title": "Information Bottleneck Explorations",
+  "category": "Theory and machine learning",
+  "summary": "Experiments and computational explorations related to the information bottleneck perspective in machine learning.",
+  "details": "",
+  "repository": "https://github.com/aidinattar/info-bottleneck",
+  "featured": false,
+  "home": false,
+  "order": 11
+}

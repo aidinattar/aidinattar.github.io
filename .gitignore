@@ -3,3 +3,6 @@ __site/
 _rss/
 node_modules/
 .DS_Store
+
+# Generated from content/ by scripts/build_content.py.
+# Keep generated snippets in Git for first-time local preview.

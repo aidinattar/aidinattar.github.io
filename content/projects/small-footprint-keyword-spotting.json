@@ -1,0 +1,13 @@
+{
+  "title": "Small-Footprint Keyword Spotting",
+  "category": "Efficient audio models",
+  "summary": "A compact audio classification pipeline for keyword spotting based on convolutional neural networks,\n      designed with lightweight inference and constrained deployment scenarios in mind.",
+  "details": "This project represents my broader interest in efficient machine learning systems and practical model design.",
+  "repository": "https://github.com/aidinattar/AudioKWS",
+  "featured": true,
+  "home": true,
+  "order": 2,
+  "image": "/assets/projects/audiokws.jpg",
+  "image_alt": "Preview image for small-footprint keyword spotting project",
+  "image_contain": false
+}

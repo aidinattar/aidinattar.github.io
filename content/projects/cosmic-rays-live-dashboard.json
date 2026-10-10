@@ -1,0 +1,10 @@
+{
+  "title": "Cosmic Rays Live Dashboard",
+  "category": "Scientific dashboards",
+  "summary": "A real-time dashboard-oriented project for monitoring and publishing data from a particle physics detector.",
+  "details": "",
+  "repository": "https://github.com/aidinattar/CosmicRays-LiveDashboard",
+  "featured": false,
+  "home": false,
+  "order": 6
+}

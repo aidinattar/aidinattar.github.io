@@ -1,0 +1,10 @@
+{
+  "title": "code128-net",
+  "category": "Applied deep learning",
+  "summary": "Deep learning for localization of Code128 finder patterns from normalized one-dimensional signals,\n      developed in an applied industrial setting.",
+  "details": "",
+  "repository": "https://github.com/aidinattar/code128-net",
+  "featured": false,
+  "home": false,
+  "order": 4
+}

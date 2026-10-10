@@ -1,0 +1,13 @@
+{
+  "title": "Lab Workflow Automation",
+  "category": "Automation and tooling",
+  "summary": "A lightweight automation project built to support everyday workflows, coordination,\n      and small infrastructure tasks in a shared research environment.",
+  "details": "Beyond model development, I am also interested in building tools that make technical work easier to organize and maintain.",
+  "repository": "https://github.com/aidinattar/deilabs-bot",
+  "featured": true,
+  "home": true,
+  "order": 3,
+  "image": "/assets/projects/deilabs-logo.png",
+  "image_alt": "DeiLabs logo",
+  "image_contain": true
+}

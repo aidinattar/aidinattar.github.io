@@ -1,5 +1,6 @@
 @def title = "Fast adaptation and selective consolidation"
 @def description = "A conceptual note on multi-timescale plasticity, familiarity, and memory formation in continuous streams."
+
 ~~~
 <section class="page-intro note-intro">
   <p class="eyebrow">Research note</p>

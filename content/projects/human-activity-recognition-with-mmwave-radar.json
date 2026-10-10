@@ -1,0 +1,13 @@
+{
+  "title": "Human Activity Recognition with mmWave Radar",
+  "category": "Sensing and machine learning",
+  "summary": "A project on activity recognition from mmWave radar data, combining sensing, signal processing,\n      and machine learning on motion measurements collected across multiple subjects and environments.",
+  "details": "It reflects my interest in intelligent systems that connect data acquisition, representation,\n      and real-world experimental settings.",
+  "repository": "https://github.com/aidinattar/radio-wave-activity-detection",
+  "featured": true,
+  "home": true,
+  "order": 1,
+  "image": "/assets/projects/mmwave-radar.jpg",
+  "image_alt": "Preview image for mmWave radar activity recognition project",
+  "image_contain": false
+}

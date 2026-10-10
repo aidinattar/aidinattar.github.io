@@ -1,0 +1,10 @@
+{
+  "title": "Volatility Carry Modeling",
+  "category": "Quantitative modeling",
+  "summary": "A project on modeling implied volatility through multi-factor statistical approaches,\n      reflecting part of my background in quantitative analysis.",
+  "details": "",
+  "repository": "https://github.com/aidinattar/Volatility-carry-trading-strategy",
+  "featured": false,
+  "home": false,
+  "order": 7
+}

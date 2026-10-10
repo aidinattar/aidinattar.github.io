@@ -1,0 +1,10 @@
+{
+  "title": "Vehicular Network Dynamics",
+  "category": "Networks and systems",
+  "summary": "A project on vehicular networks exploring communication, coordination, and system-level behavior in distributed settings.",
+  "details": "",
+  "repository": "https://github.com/aidinattar/VehicularNetworks_GT",
+  "featured": false,
+  "home": false,
+  "order": 9
+}

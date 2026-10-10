@@ -58,39 +58,7 @@
 
 ## Published notes
 
-~~~
-<div class="card-grid note-preview-grid">
-  <article class="card featured-card note-preview-card">
-    <a class="note-preview-link note-preview-media" href="/notes/fast-slow-adaptation/" aria-label="Read Fast adaptation and selective consolidation">
-      <div class="card-image note-preview-image note-preview-image--plot">
-        <img src="/assets/notes/fast-slow-adaptation/selective-consolidation-toy.png" alt="Illustrative plot of fast adaptation and selective persistence in a continuous stream">
-      </div>
-    </a>
-    <div class="note-preview-body">
-      <p class="card-meta">Research note</p>
-      <h3><a href="/notes/fast-slow-adaptation/">Fast adaptation and selective consolidation</a></h3>
-      <p>A conceptual note on how fast adaptation, familiarity, and multi-timescale plasticity can distinguish transient change from information worth consolidating.</p>
-      <p class="note-preview-topics">Continual learning · Selective consolidation · Spiking neural networks</p>
-      <p class="note-preview-action"><a href="/notes/fast-slow-adaptation/">Read note</a></p>
-    </div>
-  </article>
-
-  <article class="card featured-card note-preview-card">
-    <a class="note-preview-link note-preview-media" href="/notes/graduating-masters-degree/" aria-label="Read Graduating with my Master's degree">
-      <div class="card-image note-preview-image note-preview-image--photo">
-        <img src="/assets/notes/graduating-masters-degree/graduation-3.jpg" alt="Graduation portrait from the University of Padova">
-      </div>
-    </a>
-    <div class="note-preview-body">
-      <p class="card-meta">Milestone note</p>
-      <h3><a href="/notes/graduating-masters-degree/">Graduating with my Master's degree</a></h3>
-      <p>A short personal note on completing my Master's degree in Physics of Data at the University of Padova, with a few photos from graduation day.</p>
-      <p class="note-preview-topics">Physics of Data · University of Padova · December 2024</p>
-      <p class="note-preview-action"><a href="/notes/graduating-masters-degree/">Read note</a></p>
-    </div>
-  </article>
-</div>
-~~~
+{{insert generated/notes.html}}
 
 ## Planned directions
 
@@ -116,16 +84,3 @@
 ## What to expect
 
 Most entries here will be relatively short. Some will be closer to mini-essays, others to structured notes or implementation logs. Over time, I would like this section to become a useful complement to the more static pages of the site: less formal than publications, but more deliberate than scattered private notes.
-
-~~~
-<section class="note-box">
-  <h2>Current notes</h2>
-  <p>
-    The section now includes two public notes:
-    <a href="/notes/fast-slow-adaptation/">Fast adaptation and selective consolidation</a>
-    and
-    <a href="/notes/graduating-masters-degree/">Graduating with my Master's degree</a>.
-    More technical notes, reading notes, and short research essays will be added over time.
-  </p>
-</section>
-~~~

@@ -1,0 +1,207 @@
+# Pages CMS - https://pagescms.org/
+# Sign in with GitHub and select aidinattar/aidinattar.github.io (branch: main).
+media:
+  input: _assets
+  output: /assets
+  rename: safe
+
+content:
+  - name: publications
+    label: Publications
+    type: collection
+    path: content/publications
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: title
+      fields: [title, type, year, published]
+      sort: [year, title]
+      default:
+        sort: year
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: authors
+        label: Authors (in order)
+        type: string
+        list: true
+        required: true
+      - name: type
+        label: Publication type
+        type: select
+        required: true
+        options:
+          values:
+            - name: journal
+              label: Journal article
+            - name: conference
+              label: Conference paper
+            - name: preprint
+              label: Preprint
+            - name: book
+              label: Book chapter
+      - name: year
+        label: Year
+        type: number
+        required: true
+      - name: venue
+        label: Venue (journal, workshop or conference)
+        type: string
+      - name: proceedings
+        label: Proceedings or journal reference
+        type: string
+      - name: pages
+        label: Pages
+        type: string
+      - name: abstract
+        label: Abstract
+        type: text
+      - name: doi
+        label: DOI (without doi.org/)
+        type: string
+      - name: arxiv
+        label: arXiv ID (without URL)
+        type: string
+      - name: pdf
+        label: PDF URL
+        type: string
+      - name: url
+        label: Additional publication URL
+        type: string
+      - name: bibtex
+        label: BibTeX (optional; generated if empty)
+        type: code
+        options:
+          format: markdown
+      - name: published
+        label: Visible on the site
+        type: boolean
+
+  - name: theses
+    label: Theses
+    type: collection
+    path: content/theses
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: title
+      fields: [title, degree, order]
+      sort: [order, title]
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: degree
+        label: Degree
+        type: string
+        required: true
+      - name: institution
+        type: string
+      - name: year
+        type: number
+      - name: language
+        type: string
+      - name: description
+        type: text
+      - name: url
+        label: Thesis URL
+        type: string
+      - name: order
+        label: Display order
+        type: number
+
+  - name: projects
+    label: Projects
+    type: collection
+    path: content/projects
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: title
+      fields: [title, category, featured, order]
+      sort: [order, title]
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: category
+        type: string
+        required: true
+      - name: summary
+        type: text
+        required: true
+      - name: details
+        label: Additional description (featured projects)
+        type: text
+      - name: repository
+        label: Repository URL
+        type: string
+      - name: image
+        label: Cover image
+        type: image
+      - name: image_alt
+        label: Image description (accessibility)
+        type: string
+      - name: image_contain
+        label: Show entire image without cropping
+        type: boolean
+      - name: featured
+        label: Featured on Projects page
+        type: boolean
+      - name: home
+        label: Display on homepage
+        type: boolean
+      - name: order
+        label: Display order
+        type: number
+
+  - name: notes
+    label: Notes
+    type: collection
+    path: content/notes
+    format: toml-frontmatter
+    delimiters: "+++"
+    filename: "{primary}.md"
+    view:
+      primary: title
+      fields: [title, category, published, order]
+      sort: [order, title]
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: description
+        label: SEO description
+        type: text
+      - name: summary
+        label: Preview text
+        type: text
+      - name: category
+        label: Note category
+        type: string
+      - name: date
+        label: Date (optional)
+        type: date
+      - name: image
+        label: Preview image
+        type: image
+      - name: image_alt
+        label: Image description
+        type: string
+      - name: topics
+        type: string
+        list: true
+      - name: order
+        label: Display order
+        type: number
+      - name: published
+        label: Visible on the site
+        type: boolean
+      - name: body
+        label: Franklin Markdown content (preserves math and HTML)
+        type: code
+        options:
+          format: markdown

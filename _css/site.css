@@ -1199,3 +1199,253 @@ h3 {
     width: min(210px, 70vw);
   }
 }
+
+/* Subtle color emphasis without changing the site's existing palette. */
+.site-header__inner {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(115deg, rgba(225, 239, 235, 0.96), rgba(255, 252, 246, 0.95) 48%, rgba(247, 249, 244, 0.9));
+  border-color: rgba(15, 76, 92, 0.2);
+  box-shadow: 0 9px 28px rgba(12, 59, 67, 0.08);
+}
+.site-header__inner::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, #176879, #448c85);
+}
+.brand-name { color: var(--accent-strong); }
+.site-nav a {
+  padding: 0.42rem 0.2rem;
+  border-radius: 0.4rem;
+  transition: color 0.16s ease, background-color 0.16s ease;
+}
+.site-nav a[aria-current="page"] {
+  color: var(--accent-strong);
+  font-weight: 700;
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+
+/* Compact, reference-like bibliography. No cards or long abstracts in the list. */
+.publication-intro {
+  margin: 0 0 2rem;
+  max-width: 53rem;
+}
+.publication-intro .eyebrow { margin-bottom: 0.55rem; }
+.publication-intro h1 {
+  font-family: var(--heading-font);
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  margin: 0 0 0.7rem;
+}
+.publication-intro > p:last-child {
+  margin: 0;
+  max-width: 47rem;
+  font-size: 1.03rem;
+}
+.publication-section { margin-top: 2rem; }
+.publication-section h2 { margin: 0 0 0.55rem; }
+.publication-entry {
+  padding: 1.12rem 0.65rem 1.25rem;
+  border-bottom: 1px solid rgba(15, 76, 92, 0.16);
+  border-radius: 0.4rem;
+  transition: background-color 0.15s ease;
+}
+.publication-entry:first-of-type { border-top: 1px solid rgba(15, 76, 92, 0.16); }
+.publication-entry:hover { background: rgba(15, 76, 92, 0.045); }
+.publication-entry h3 {
+  margin: 0 0 0.44rem;
+  font-size: 1.13rem;
+  line-height: 1.35;
+}
+.publication-entry__open {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-weight: 650;
+  line-height: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.publication-entry__open:hover { color: var(--accent); }
+.publication-entry__arrow {
+  font: 0.92rem var(--body-font);
+  margin-left: 0.35rem;
+  color: #6d9196;
+}
+.publication-entry__authors,
+.publication-entry__venue {
+  margin: 0.2rem 0;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+.publication-entry__authors { color: var(--text); }
+.publication-entry__venue { color: var(--muted); }
+.publication-entry__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.3rem;
+  margin-top: 0.57rem;
+}
+.publication-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  font-size: 0.89rem;
+  font-weight: 650;
+}
+.publication-links a { text-decoration: underline; text-underline-offset: 0.15rem; text-decoration-color: rgba(15,76,92,0.3); }
+.link-dot { color: #9aafb2; }
+.publication-details-link {
+  border: 0;
+  padding: 0.12rem 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.89rem;
+  color: var(--accent);
+  cursor: pointer;
+}
+.publication-details-link:hover { color: var(--accent-strong); text-decoration: underline; }
+.publication-dialog {
+  width: min(700px, calc(100vw - 2.5rem));
+  max-height: min(85vh, 880px);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid rgba(15, 76, 92, 0.17);
+  border-radius: 1.2rem;
+  background: #fffdf8;
+  color: var(--text);
+  box-shadow: 0 30px 90px rgba(7, 27, 35, 0.26);
+}
+.publication-dialog::backdrop { background: rgba(8, 29, 36, 0.66); backdrop-filter: blur(3px); }
+.publication-dialog__content { padding: clamp(1.25rem, 4vw, 2.15rem); }
+.publication-dialog__close {
+  float: right;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-left: 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f1eee7;
+  font: 1.5rem/1 var(--body-font);
+  cursor: pointer;
+}
+.publication-dialog__close:hover { background: var(--accent-soft); }
+.publication-dialog .eyebrow { margin: 0 0 0.6rem; }
+.publication-dialog h2 {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.5rem, 4vw, 2.08rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.publication-dialog__authors { margin: 0; color: var(--text); }
+.publication-dialog__section { margin-top: 1.5rem; }
+.publication-dialog__section h3 { margin: 0 0 0.65rem; font-size: 1rem; }
+.publication-dialog__section > p { margin: 0; font-size: 0.97rem; }
+.publication-dialog__facts { margin: 0; display: grid; gap: 0.52rem; }
+.publication-dialog__facts > div { display: grid; grid-template-columns: minmax(90px, 26%) 1fr; gap: 0.8rem; }
+.publication-dialog__facts dt { color: var(--muted); font-size: 0.88rem; }
+.publication-dialog__facts dd { margin: 0; font-size: 0.92rem; overflow-wrap: anywhere; }
+.publication-dialog__links { margin-top: 1.5rem; }
+.publication-citation__heading { display: flex; gap: 1rem; justify-content: space-between; align-items: center; }
+.publication-citation__copy { background: transparent; border: 1px solid rgba(15,76,92,.3); color: var(--accent); border-radius: 999px; padding: 0.36rem 0.8rem; cursor: pointer; font-size: 0.85rem; }
+.publication-citation__copy:hover { background: var(--accent-soft); }
+.publication-citation pre { margin: 0.4rem 0 0; padding: 0.85rem; max-height: 240px; }
+.publication-citation code { padding: 0; background: none; font-size: 0.81rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* Theses use the same restrained scholarly rhythm as references. */
+.thesis-entry { padding: 1.1rem 0.65rem; border-top: 1px solid rgba(15,76,92,.16); }
+.thesis-entry:last-child { border-bottom: 1px solid rgba(15,76,92,.16); }
+.thesis-entry__meta { color: var(--accent); font-size: 0.87rem; font-weight: 650; margin: 0 0 0.35rem; }
+.thesis-entry h3 { margin: 0 0 0.35rem; font-size: 1.1rem; line-height: 1.4; }
+.thesis-entry__description { margin: 0.35rem 0 0.6rem; font-size: 0.93rem; }
+.thesis-entry__link { font-size: 0.88rem; font-weight: 650; }
+
+/* Footer contrast, preserving official branding on neutral backgrounds. */
+.site-shell { padding-bottom: 1.5rem; }
+.site-footer {
+  margin-top: 1.8rem;
+  border-radius: 1.35rem;
+  background: linear-gradient(128deg, #092d39, #124c58 74%, #155a64);
+  box-shadow: 0 13px 34px rgba(9, 48, 58, 0.15);
+}
+.site-footer__inner {
+  padding: 1.65rem clamp(1.1rem, 3vw, 2rem);
+  border-top: none;
+  gap: 1.5rem;
+}
+.site-footer__name {
+  color: #f9f9f4 !important;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 1.28rem !important;
+}
+.site-footer__role { color: #d0e4e3 !important; margin-bottom: 0.6rem !important; }
+.site-footer p { color: #e5efec; }
+.site-footer a { color: #f4f6ef; text-decoration-color: rgba(255,255,255,.35); }
+.site-footer a:hover { color: #b9f0e5; }
+.site-footer__note { color: #b7d3d3 !important; font-size: 0.82rem !important; margin-top: 0.7rem !important; }
+.footer-sep { color: rgba(230,245,242,.5); }
+.footer-affiliations { gap: 0.65rem; }
+.footer-affiliation {
+  min-height: 5.1rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.85rem;
+  background: #fdfbf6;
+  border: 1px solid rgba(255,255,255,.4);
+  transition: transform 0.15s ease;
+}
+.footer-affiliation:hover { transform: translateY(-2px); }
+.footer-affiliation .affiliation-logo--unipd { width: 106px; max-height: 64px; }
+.footer-affiliation .affiliation-logo--dei { width: 116px; max-height: 64px; }
+
+@media (max-width: 760px) {
+  .site-nav a[aria-current="page"] { box-shadow: none; background: rgba(15,76,92,.13); }
+  .site-footer { border-radius: 1.05rem; }
+  .site-footer__inner { padding: 1.35rem 1rem; }
+  .footer-affiliations { flex-direction: row; gap: 0.55rem; margin-top: 0.55rem; }
+  .footer-affiliation { width: auto; min-height: 4.5rem; }
+  .footer-affiliation .affiliation-logo--unipd { width: 90px; }
+  .footer-affiliation .affiliation-logo--dei { width: 98px; }
+}
+@media (max-width: 560px) {
+  .publication-entry { padding: 0.95rem 0.3rem 1rem; }
+  .publication-entry h3 { font-size: 1.04rem; }
+  .publication-dialog { width: calc(100vw - 1rem); max-height: 92vh; border-radius: 0.85rem; }
+  .publication-dialog__facts > div { grid-template-columns: 1fr; gap: 0.1rem; }
+  .publication-intro { margin-bottom: 1.4rem; }
+  .site-footer__inner { gap: 0.85rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .publication-entry, .site-nav a, .footer-affiliation { transition: none; }
+}
+
+/* The UniPD SVG has generous transparent margins in its original viewBox.
+   Cover removes only that empty space; the artwork and colors stay untouched. */
+.footer-affiliation .affiliation-logo--unipd {
+  width: 185px;
+  height: 64px;
+  max-height: none;
+  object-fit: cover;
+}
+.footer-affiliation .affiliation-logo--dei {
+  width: 133px;
+  max-height: 70px;
+}
+@media (max-width: 760px) {
+  .footer-affiliation .affiliation-logo--unipd { width: 148px; height: 54px; }
+  .footer-affiliation .affiliation-logo--dei { width: 112px; max-height: 64px; }
+}
+@media (max-width: 370px) {
+  .footer-affiliations { flex-direction: column; }
+}
