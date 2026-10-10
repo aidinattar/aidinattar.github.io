@@ -162,6 +162,8 @@ content:
     label: Notes
     type: collection
     path: notes
+    # Pages CMS may serialize TOML strings with single quotes.
+    # scripts/build_content.py normalizes the +++ header for Franklin/Julia.
     format: toml-frontmatter
     delimiters: "+++"
     filename: "{primary}.md"

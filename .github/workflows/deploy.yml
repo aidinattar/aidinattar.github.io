@@ -33,11 +33,17 @@ jobs:
       - name: Instantiate project
         run: julia --project=. -e 'using Pkg; Pkg.instantiate()'
 
+      - name: Test Pages CMS note pipeline
+        run: PYTHONPATH=scripts python3 -m unittest discover -s scripts -p 'test_note_pipeline.py'
+
       - name: Generate pages from Pages CMS content
         run: python3 scripts/build_content.py
 
       - name: Build Franklin site
         run: julia --project=. -e 'using Franklin; optimize(clear=true)'
+
+      - name: Verify generated note pages and images
+        run: python3 scripts/check_site.py
 
       - name: Copy static verification and robots files
         run: |

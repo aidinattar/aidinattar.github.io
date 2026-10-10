@@ -1,16 +1,11 @@
 +++
-title = 'Synaptic balance: from local rescaling to global order'
-description = 'On function-preserving changes of synaptic weights, local regularization, and the emergence of a unique balanced network.'
-summary = 'On function-preserving changes of synaptic weights, local regularization, and the emergence of a unique balanced network.'
-category = 'Research Note'
-date = '2026-10-10'
-image = '/assets/local-to-global-balancing.png'
-topics = [
-	'Synaptic balance',
-	'Local optimization',
-	'Neural network symmetries',
-	'Neuromorphic computing',
-]
+title = "Synaptic balance: from local rescaling to global order"
+description = "On function-preserving changes of synaptic weights, local regularization, and the emergence of a unique balanced network."
+summary = "On function-preserving changes of synaptic weights, local regularization, and the emergence of a unique balanced network."
+category = "Research Note"
+date = "2026-10-10"
+image = "/assets/local-to-global-balancing.png"
+topics = ["Synaptic balance", "Local optimization", "Neural network symmetries", "Neuromorphic computing"]
 order = 2.0
 published = true
 +++
@@ -322,7 +317,7 @@ fig
 
 ~~~
 <figure class="note-figure">
-  <img src="/assets/notes/synaptic-balance/local-to-global-balancing.png"
+  <img src="/assets/local-to-global-balancing.png"
        alt="Illustrative trajectories of squared-weight cost and balance deficit under cyclic and random local neuron balancing">
   <figcaption>
     Illustrative local balancing on a small ReLU network. Cyclic and random update schedules follow different paths, but approach the same weight cost and vanishing balance deficit. The network's predictions are unchanged up to floating-point precision.

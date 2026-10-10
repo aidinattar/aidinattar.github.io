@@ -13,6 +13,8 @@ import tomllib
 from pathlib import Path
 from urllib.parse import urlparse
 
+from normalize_notes import normalize_all
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / 'content'
 LAYOUT = ROOT / '_layout' / 'generated'
@@ -186,9 +188,10 @@ write('projects-featured.html','<div class="card-grid featured-grid">\n'+ '\n'.j
 write('projects-additional.html','<div class="card-grid compact-grid">\n'+ '\n'.join(project_card(p,False) for p in projects if not p.get('featured'))+'\n</div>')
 write('home-projects.html','<div class="card-grid">\n'+ '\n'.join(project_card({**p,'details':''},False) for p in projects if p.get('home'))+'\n</div>')
 
-# Pages CMS and Franklin both edit/render notes/*.md directly. Their +++ headers
-# use a TOML subset that is also valid Franklin/Julia page-variable syntax.
-# Do not rewrite note pages here: that would create duplicated editable sources.
+# Pages CMS writes TOML literal strings with single quotes, while Franklin's
+# +++ page variables must be valid Julia expressions. Normalize in the build
+# workspace before Franklin reads notes, without changing any note body.
+normalize_all()
 note_entries = []
 unpublished_notes = []
 for source in sorted(NOTES.glob('*.md')):

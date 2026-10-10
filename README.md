@@ -22,6 +22,8 @@ The first-time connection to Pages CMS/GitHub is an account authorization, not a
 
 **Do not edit** `_layout/generated/*` directly: these HTML lists are generated before deployment. Notes live only in `notes/*.md` and are edited directly through Pages CMS or in Git. The other collections have sources under `content/`. Page copy outside the four collections (home, research, CV, contact) remains in the original Markdown files and can still be edited normally in GitHub.
 
+Note formulas are rendered client-side by the locally bundled KaTeX scripts, included only on pages where Franklin detects mathematics. The required scripts are listed in `_layout/foot.html` and `_assets/js/math.js`. Keep these files when changing the site layout.
+
 Notes use the Pages CMS **code editor** for the body, intentionally rather than WYSIWYG, to preserve Franklin math (`$$...$$`), LaTeX expressions, HTML sections, Julia code blocks, and citations. For a new note, start the body with a heading (`# My note`) or a custom HTML intro. Preview images belong in `_assets` and are referenced as `/assets/...`.
 
 ### Notes: one directory
@@ -50,3 +52,28 @@ Only Python 3.11+ (standard library) and the existing Julia dependencies are nee
 Use one JSON record per publication. `title`, `authors` (ordered list), `type`, and `year` control the reference list; `venue`, `proceedings`, `pages`, `abstract`, and the DOI/arXiv/PDF links populate the popup. Provide `bibtex` to override the automatically generated minimal BibTeX. Set `published: false` to hide a work without deleting it.
 
 Projects can be marked `featured` (large card in Projects) and `home` (shown on the homepage). Notes are ordered by `order`. Notes with `published: false` are excluded from the index and Franklin routing at build time (via a generated ignore list). The `order` field also controls the project and thesis ordering.
+
+### Notes created with Pages CMS
+
+Pages CMS saves `notes/*.md` with TOML `+++` frontmatter. Franklin interprets
+those fields as Julia expressions, so its parser cannot read TOML's
+single-quoted strings. `python3 scripts/build_content.py` automatically
+normalizes the metadata into compatible double-quoted Julia/TOML strings before
+Franklin builds the site. The Markdown body, mathematics and code are left alone.
+The normalization changes files in the working tree; commit those normalized
+changes if you want the repository itself to use the canonical format. Pages CMS
+may use single quotes again during the next edit, but the build repairs them.
+
+CMS uploads are saved in `_assets/` and served from `/assets/`. Use exactly the
+path shown in the CMS media field when inserting images inside a note. The
+normalizer checks both cover and inline images for missing local files. If a
+missing image in the body has the same filename as a valid cover image, you can
+repair it locally with:
+
+```bash
+python3 scripts/normalize_notes.py --repair-image-paths
+python3 scripts/build_content.py
+```
+
+GitHub Actions also checks after Franklin builds that each published note has a
+corresponding HTML page before allowing deployment.
