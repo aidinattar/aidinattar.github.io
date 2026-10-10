@@ -10,6 +10,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: write
 
 concurrency:
   group: pages
@@ -29,6 +30,9 @@ jobs:
         uses: julia-actions/setup-julia@v2
         with:
           version: '1.11'
+    
+      - name: Cache Julia environment
+        uses: julia-actions/cache@v3
 
       - name: Instantiate project
         run: julia --project=. -e 'using Pkg; Pkg.instantiate()'
