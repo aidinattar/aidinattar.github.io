@@ -1,16 +1,11 @@
 +++
-title = 'Synaptic balance: from local rescaling to global order'
-description = 'On function-preserving changes of synaptic weights, local regularization, and the emergence of a unique balanced network.'
-summary = 'On function-preserving changes of synaptic weights, local regularization, and the emergence of a unique balanced network.'
-category = 'Research Note'
-date = '2026-10-10'
-image = '/assets/synaptic-balance-from-local-rescaling-to-global-order.svg'
-topics = [
-	'Synaptic balance',
-	'Local optimization',
-	'Neural network symmetries',
-	'Neuromorphic computing',
-]
+title = "Synaptic balance: from local rescaling to global order"
+description = "On function-preserving changes of synaptic weights, local regularization, and the emergence of a unique balanced network."
+summary = "On function-preserving changes of synaptic weights, local regularization, and the emergence of a unique balanced network."
+category = "Research Note"
+date = "2026-10-10"
+image = "/assets/synaptic-balance-from-local-rescaling-to-global-order.svg"
+topics = ["Synaptic balance", "Local optimization", "Neural network symmetries", "Neuromorphic computing"]
 order = 1.0
 published = true
 +++
@@ -272,54 +267,78 @@ weight_difference = maximum(
 )
 println("Maximum difference between final weights = ", weight_difference)
 
+# A single grayscale figure, with line styles encoding update schedules.
 set_theme!(Theme(
-    fontsize = 15,
     font = "TeX Gyre Termes",
+    fontsize = 16,
     backgroundcolor = :white,
     Axis = (
         backgroundcolor = :white,
         xgridvisible = false,
-        ygridvisible = false,
-        topspinevisible = true,
-        rightspinevisible = true,
+        ygridvisible = true,
+        ygridcolor = (:black, 0.10),
+        ygridwidth = 0.7,
+        topspinevisible = false,
+        rightspinevisible = false,
         spinewidth = 1.0,
         xtickalign = 1,
         ytickalign = 1,
+        xticksize = 5,
+        yticksize = 5,
+        titlesize = 19,
+        titlealign = :left,
+        xlabelsize = 16,
+        ylabelsize = 16,
     ),
-    Legend = (framevisible = false, labelsize = 13)
+    Legend = (framevisible = false, labelsize = 14)
 ))
 
 steps = 0:300
-fig = Figure(size = (920, 630))
-ax1 = Axis(fig[1, 1],
-    title = "Local updates, common global endpoint",
+fig = Figure(size = (1160, 575), backgroundcolor = :white)
+Label(fig[1, 1:2], "Convergence through local synaptic balancing",
+      fontsize = 25, halign = :left, tellwidth = false)
+
+ax1 = Axis(fig[2, 1],
+    title = "A   Regularization cost",
+    xlabel = "Local balancing operations",
     ylabel = "Squared-weight cost",
-    xticklabelsvisible = false,
-    xticksvisible = false)
-lines!(ax1, steps, R_cyclic, color = :black,
-       linewidth = 2.0, label = "Cyclic updates")
-lines!(ax1, steps, R_random, color = :black,
-       linestyle = :dash, linewidth = 1.7,
-       label = "Random updates")
+    xticks = 0:15:90)
+lines!(ax1, steps, R_cyclic;
+       color = :black, linewidth = 2.8, label = "Cyclic")
+lines!(ax1, steps, R_random;
+       color = :black, linewidth = 1.8, linestyle = :dash,
+       label = "Random")
+xlims!(ax1, 0, 90)
+ylims!(ax1, 17.3, 24.0)
 axislegend(ax1, position = :rt)
 
-ax2 = Axis(fig[2, 1],
+ax2 = Axis(fig[2, 2],
+    title = "B   Relative balance deficit",
     xlabel = "Local balancing operations",
     ylabel = "Relative balance deficit",
-    yscale = log10)
-# Floor values only for display on the log axis.
-lines!(ax2, steps, max.(D_cyclic ./ D_cyclic[1], 1e-20),
-       color = :black, linewidth = 2.0)
-lines!(ax2, steps, max.(D_random ./ D_random[1], 1e-20),
-       color = :black, linestyle = :dash, linewidth = 1.7)
+    yscale = log10,
+    xticks = 0:50:300,
+    yticks = ([1.0, 1e-5, 1e-10, 1e-15, 1e-20],
+              ["10⁰", "10⁻⁵", "10⁻¹⁰", "10⁻¹⁵", "10⁻²⁰"]))
+# A display floor is required for plotting zero on a logarithmic axis.
+# It does not alter the simulation or its reported deficits.
+relative_cyclic = max.(D_cyclic ./ D_cyclic[1], 1e-20)
+relative_random = max.(D_random ./ D_random[1], 1e-20)
+lines!(ax2, steps, relative_cyclic;
+       color = :black, linewidth = 2.8)
+lines!(ax2, steps, relative_random;
+       color = :black, linewidth = 1.8, linestyle = :dash)
+xlims!(ax2, 0, 300)
+ylims!(ax2, 1e-20, 2.0)
 
-rowsize!(fig.layout, 1, Relative(0.53))
-rowsize!(fig.layout, 2, Relative(0.47))
-rowgap!(fig.layout, 14)
-linkxaxes!(ax1, ax2)
-xlims!(ax1, 0, 300)
-save("local-to-global-balancing.png", fig, px_per_unit = 2)
-fig
+Label(fig[3, 1:2],
+      "Illustrative 3–4–2–1 ReLU network  ·  Fixed weights, no task learning  ·  L₂ balancing",
+      fontsize = 12, halign = :left, tellwidth = false)
+colgap!(fig.layout, 44)
+rowgap!(fig.layout, 20)
+
+save(joinpath(@OUTPUT, "local-to-global-balancing.svg"), fig)
+nothing
 ```
 
 ~~~
