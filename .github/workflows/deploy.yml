@@ -36,6 +36,11 @@ jobs:
       - name: Test Pages CMS note pipeline
         run: PYTHONPATH=scripts python3 -m unittest discover -s scripts -p 'test_note_pipeline.py'
 
+      # The note itself contains the canonical Julia figure code. Generate the
+      # SVG before build_content.py checks image paths in the frontmatter/body.
+      - name: Generate synaptic balancing SVG
+        run: julia --project=. scripts/generate_synaptic_balance.jl
+
       - name: Generate pages from Pages CMS content
         run: python3 scripts/build_content.py
 
