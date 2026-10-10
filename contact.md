@@ -5,9 +5,7 @@
 <section class="page-intro">
   <h1>Contact</h1>
   <p>
-    The easiest way to reach me is by email. I am generally happy to discuss research,
-    collaboration, and technical work related to machine learning, neuromorphic computing,
-    and adaptive intelligent systems.
+    For questions about my research or possible collaborations, email is the best way to reach me.
   </p>
 </section>
 ~~~
@@ -95,7 +93,3 @@
   </article>
 </div>
 ~~~
-
-## Notes
-
-I usually respond more quickly to email than to social platforms. For research-related messages, it is helpful if the subject line briefly indicates the topic or context.

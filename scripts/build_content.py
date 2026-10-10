@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Build Franklin-friendly HTML snippets and notes from Pages CMS content.
+"""Build HTML lists from Pages CMS content without altering the original pages.
 
 Only Python's standard library is required. Run before Franklin.optimize()/serve().
-Do not edit _layout/generated/ or notes/*.md: those are generated outputs.
+The notes/*.md files are the canonical Pages CMS and Franklin sources.
 """
 from __future__ import annotations
 
@@ -18,7 +18,6 @@ DATA = ROOT / 'content'
 LAYOUT = ROOT / '_layout' / 'generated'
 NOTES = ROOT / 'notes'
 LAYOUT.mkdir(parents=True, exist_ok=True)
-NOTES.mkdir(parents=True, exist_ok=True)
 
 
 def e(value: object) -> str:
@@ -187,27 +186,30 @@ write('projects-featured.html','<div class="card-grid featured-grid">\n'+ '\n'.j
 write('projects-additional.html','<div class="card-grid compact-grid">\n'+ '\n'.join(project_card(p,False) for p in projects if not p.get('featured'))+'\n</div>')
 write('home-projects.html','<div class="card-grid">\n'+ '\n'.join(project_card({**p,'details':''},False) for p in projects if p.get('home'))+'\n</div>')
 
-# TOML frontmatter allows Pages CMS to edit metadata and the original Franklin markup.
-# Generated .md files remain compatible with existing note URLs and equations.
-for old in NOTES.glob('*.md'):
-    old.unlink()  # notes/ is exclusively generated from content/notes/
+# Pages CMS and Franklin both edit/render notes/*.md directly. Their +++ headers
+# use a TOML subset that is also valid Franklin/Julia page-variable syntax.
+# Do not rewrite note pages here: that would create duplicated editable sources.
 note_entries = []
-for source in sorted((DATA / 'notes').glob('*.md')):
+unpublished_notes = []
+for source in sorted(NOTES.glob('*.md')):
     content = source.read_text(encoding='utf-8')
     match = re.match(r'\A\+\+\+\s*\n(.*?)\n\+\+\+\s*\n', content, re.S)
     if not match:
-        raise ValueError(f'{source}: expected TOML frontmatter enclosed by +++')
+        raise ValueError(f'{source}: expected +++ TOML/Franklin frontmatter')
     meta = tomllib.loads(match.group(1))
+    # Explicitly guard against TOML-only types (for instance unquoted dates),
+    # which Franklin's Julia-based +++ header cannot interpret as intended.
+    from datetime import date, datetime, time
+    if any(isinstance(v, (date, datetime, time, dict)) for v in meta.values()):
+        raise ValueError(f'{source}: frontmatter must use Julia-compatible scalar, string, or array values; quote dates')
     if not meta.get('published', True):
+        unpublished_notes.append(f'notes/{source.name}')
         continue
-    def franklin_str(value: object) -> str:
-        # Franklin page-variable syntax: @def title = "..."
-        return json.dumps(str(value), ensure_ascii=False)
-    body = content[match.end():].lstrip('\n')
-    head = f'@def title = {franklin_str(meta.get("title", source.stem))}\n@def description = {franklin_str(meta.get("description", ""))}\n\n'
-    (NOTES / source.name).write_text(head + body, encoding='utf-8')
     meta['_slug'] = source.stem
     note_entries.append(meta)
+# Keep unpublished notes out of Franklin's routing, not just the index.
+# config.md reads this file to extend its ignore list during a build.
+write('unpublished-notes.txt', '\n'.join(unpublished_notes))
 note_entries.sort(key=lambda m: (int(m.get('order') or 9999), str(m.get('title') or '')))
 notes_markup = []
 for n in note_entries:

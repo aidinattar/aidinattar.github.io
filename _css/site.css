@@ -256,13 +256,6 @@ img {
   flex-shrink: 0;
 }
 
-.affiliation-logo--unipd {
-  width: min(300px, 78vw);
-}
-
-.affiliation-logo--dei {
-  width: min(250px, 64vw);
-}
 
 .hero-links {
   display: flex;
@@ -1371,7 +1364,7 @@ h3 {
 .thesis-entry__description { margin: 0.35rem 0 0.6rem; font-size: 0.93rem; }
 .thesis-entry__link { font-size: 0.88rem; font-weight: 650; }
 
-/* Footer contrast, preserving official branding on neutral backgrounds. */
+/* Footer: use the official white DEI/UniPD mark directly on the dark surface. */
 .site-shell { padding-bottom: 1.5rem; }
 .site-footer {
   margin-top: 1.8rem;
@@ -1382,41 +1375,67 @@ h3 {
 .site-footer__inner {
   padding: 1.65rem clamp(1.1rem, 3vw, 2rem);
   border-top: none;
-  gap: 1.5rem;
+  gap: 1.5rem 2.25rem;
 }
 .site-footer__name {
-  color: #f9f9f4 !important;
+  color: #f9f9f4;
   font-family: var(--heading-font);
   font-weight: 700;
   font-size: 1.28rem !important;
 }
-.site-footer__role { color: #d0e4e3 !important; margin-bottom: 0.6rem !important; }
+.site-footer__role { color: #d0e4e3; margin-bottom: 0.6rem !important; }
 .site-footer p { color: #e5efec; }
 .site-footer a { color: #f4f6ef; text-decoration-color: rgba(255,255,255,.35); }
 .site-footer a:hover { color: #b9f0e5; }
-.site-footer__note { color: #b7d3d3 !important; font-size: 0.82rem !important; margin-top: 0.7rem !important; }
+.site-footer__note { color: #b7d3d3; font-size: 0.82rem !important; margin-top: 0.7rem !important; }
 .footer-sep { color: rgba(230,245,242,.5); }
-.footer-affiliations { gap: 0.65rem; }
-.footer-affiliation {
-  min-height: 5.1rem;
-  padding: 0.5rem 0.85rem;
-  border-radius: 0.85rem;
-  background: #fdfbf6;
-  border: 1px solid rgba(255,255,255,.4);
-  transition: transform 0.15s ease;
+/* Single institutional logo, with no backing card. Separate classes from
+   legacy footer-affiliation rules to avoid inherited logo-box styles. */
+.site-footer .footer-affiliations {
+  flex: 0 1 auto;
+  justify-content: flex-end;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
-.footer-affiliation:hover { transform: translateY(-2px); }
-.footer-affiliation .affiliation-logo--unipd { width: 106px; max-height: 64px; }
-.footer-affiliation .affiliation-logo--dei { width: 116px; max-height: 64px; }
+.site-footer .footer-institution {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  line-height: 0;
+  transition: opacity 0.15s ease;
+}
+.site-footer .footer-institution:hover { opacity: 0.82; }
+.site-footer .footer-institution__logo {
+  display: block;
+  width: clamp(180px, 20vw, 220px);
+  max-width: 100%;
+  height: auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
 
+/* Avoid forcing the entire note wider than the viewport for long formulas. */
+.franklin-content .katex-display {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.3rem 0;
+}
 @media (max-width: 760px) {
   .site-nav a[aria-current="page"] { box-shadow: none; background: rgba(15,76,92,.13); }
   .site-footer { border-radius: 1.05rem; }
   .site-footer__inner { padding: 1.35rem 1rem; }
-  .footer-affiliations { flex-direction: row; gap: 0.55rem; margin-top: 0.55rem; }
-  .footer-affiliation { width: auto; min-height: 4.5rem; }
-  .footer-affiliation .affiliation-logo--unipd { width: 90px; }
-  .footer-affiliation .affiliation-logo--dei { width: 98px; }
+  .footer-affiliations { justify-content: flex-start; margin-top: 0.5rem; }
+  .site-footer .footer-institution__logo { width: min(205px, 70vw); }
 }
 @media (max-width: 560px) {
   .publication-entry { padding: 0.95rem 0.3rem 1rem; }
@@ -1427,25 +1446,5 @@ h3 {
   .site-footer__inner { gap: 0.85rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .publication-entry, .site-nav a, .footer-affiliation { transition: none; }
-}
-
-/* The UniPD SVG has generous transparent margins in its original viewBox.
-   Cover removes only that empty space; the artwork and colors stay untouched. */
-.footer-affiliation .affiliation-logo--unipd {
-  width: 185px;
-  height: 64px;
-  max-height: none;
-  object-fit: cover;
-}
-.footer-affiliation .affiliation-logo--dei {
-  width: 133px;
-  max-height: 70px;
-}
-@media (max-width: 760px) {
-  .footer-affiliation .affiliation-logo--unipd { width: 148px; height: 54px; }
-  .footer-affiliation .affiliation-logo--dei { width: 112px; max-height: 64px; }
-}
-@media (max-width: 370px) {
-  .footer-affiliations { flex-direction: column; }
+  .publication-entry, .site-nav a, .footer-institution { transition: none; }
 }

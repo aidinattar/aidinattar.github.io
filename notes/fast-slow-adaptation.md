@@ -1,5 +1,14 @@
-@def title = "Fast adaptation and selective consolidation"
-@def description = "A conceptual note on multi-timescale plasticity, familiarity, and memory formation in continuous streams."
++++
+title = "Fast adaptation and selective consolidation"
+description = "A conceptual note on multi-timescale plasticity, familiarity, and memory formation in continuous streams."
+summary = "A conceptual note on how fast adaptation, familiarity, and multi-timescale plasticity can distinguish transient change from information worth consolidating."
+order = 1
+category = "Research note"
+image = "/assets/notes/fast-slow-adaptation/selective-consolidation-toy.png"
+image_alt = "Illustrative plot of fast adaptation and selective persistence in a continuous stream"
+topics = ["Continual learning", "Selective consolidation", "Spiking neural networks"]
+published = true
++++
 
 ~~~
 <section class="page-intro note-intro">

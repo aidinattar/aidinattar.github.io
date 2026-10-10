@@ -1,5 +1,15 @@
-@def title = "Graduating with my Master's degree"
-@def description = "A short note on completing my Master's degree in Physics of Data at the University of Padova."
++++
+title = "Graduating with my Master's degree"
+description = "A short note on completing my Master's degree in Physics of Data at the University of Padova."
+summary = "A short personal note on completing my Master's degree in Physics of Data at the University of Padova, with a few photos from graduation day."
+order = 2
+category = "Milestone note"
+image = "/assets/notes/graduating-masters-degree/graduation-3.jpg"
+image_alt = "Graduation portrait from the University of Padova"
+date = "2024-12-06"
+topics = ["Physics of Data", "University of Padova", "December 2024"]
+published = true
++++
 
 ~~~
 <section class="page-intro note-intro note-intro--warm">

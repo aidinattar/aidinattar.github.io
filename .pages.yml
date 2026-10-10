@@ -161,7 +161,7 @@ content:
   - name: notes
     label: Notes
     type: collection
-    path: content/notes
+    path: notes
     format: toml-frontmatter
     delimiters: "+++"
     filename: "{primary}.md"
@@ -183,8 +183,8 @@ content:
         label: Note category
         type: string
       - name: date
-        label: Date (optional)
-        type: date
+        label: Date (YYYY-MM-DD; optional)
+        type: string
       - name: image
         label: Preview image
         type: image

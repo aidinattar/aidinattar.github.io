@@ -28,4 +28,34 @@
   </div>
 </dialog>
 </section>
+<section class="publication-section" aria-label="Preprints"><h2>Preprints</h2>
+<article class="publication-entry" aria-labelledby="pub-multi-depth-temporal-fusion-for-feedforward-locally-trained-spiking-neural-networks-title">
+  <div class="publication-entry__body">
+    <h3 id="pub-multi-depth-temporal-fusion-for-feedforward-locally-trained-spiking-neural-networks-title"><button class="publication-entry__open" type="button" data-dialog="pub-multi-depth-temporal-fusion-for-feedforward-locally-trained-spiking-neural-networks" aria-haspopup="dialog">Multi-Depth Temporal Fusion for Feedforward, Locally Trained Spiking Neural Networks<span aria-hidden="true" class="publication-entry__arrow">↗</span></button></h3>
+    <p class="publication-entry__authors"><strong>Aidin Attar</strong>, Eleonora Cicciarella, Michele Rossi</p>
+    <p class="publication-entry__venue">Submitted to Elsavier Neurocomputing · 2026</p>
+    <div class="publication-entry__actions"><span class="publication-links"><a href="https://arxiv.org/abs/arXiv:2609.37047v2" target="_blank" rel="noopener noreferrer">arXiv</a><span class="link-dot" aria-hidden="true">·</span><a href="https://arxiv.org/pdf/2609.37047" target="_blank" rel="noopener noreferrer">PDF</a></span><button class="publication-details-link" type="button" data-dialog="pub-multi-depth-temporal-fusion-for-feedforward-locally-trained-spiking-neural-networks" aria-haspopup="dialog">Details <span aria-hidden="true">↗</span></button></div>
+  </div>
+</article>
+<dialog class="publication-dialog" id="pub-multi-depth-temporal-fusion-for-feedforward-locally-trained-spiking-neural-networks" aria-labelledby="pub-multi-depth-temporal-fusion-for-feedforward-locally-trained-spiking-neural-networks-modal-title">
+  <div class="publication-dialog__content">
+    <form method="dialog"><button class="publication-dialog__close" type="submit" aria-label="Close publication details">×</button></form>
+    <p class="eyebrow">Publication details</p>
+    <h2 id="pub-multi-depth-temporal-fusion-for-feedforward-locally-trained-spiking-neural-networks-modal-title">Multi-Depth Temporal Fusion for Feedforward, Locally Trained Spiking Neural Networks</h2>
+    <p class="publication-dialog__authors"><strong>Aidin Attar</strong>, Eleonora Cicciarella, Michele Rossi</p>
+    <section class="publication-dialog__section"><h3>Abstract</h3><p> We propose a new spiking neural network (SNN) design to process static images and event streams using time-to-first-spike (TTFS) latencies. Our key research question is which architectural choices best accommodate local and online learning in multi-layer convolutional SNNs. This question is addressed via an original framework combining residual-like connections with multi-depth feature aggregation and consensus. The full SNN pipeline features an early-vision front end, to convert raw visual data into sparse spike latencies, a four-layer convolutional backbone trained layerwise with unsupervised spike-timing-dependent plasticity (STDP), a deterministic Multi-Depth Temporal Fusion (MDTF) and a final classifier trained with reward-modulated spike-timing-dependent plasticity (R-STDP). Rather than replacing early features in deeper layers, the proposed MDTF preserves early temporal evidence, adding sparse residual events from intermediate layers, and incorporating deeper features only when they agree in time with earlier representations. The resulting architecture is experimentally validated across MNIST, Fashion-MNIST, CIFAR-10, and N-MNIST, delivering strong classification performance under a fully local learning regime. Selective multi-depth fusion significantly outperforms traditional STDP/R-STDP baselines on higher-variability visual tasks (achieving +18.2 pp on Fashion-MNIST and +29.2 pp on CIFAR-10). Furthermore, activity-budget analyses show that the network retains high accuracy even when removing a large fraction of late or weak spike events, confirming its high data efficiency and reduced event-processing requirements. The codebase is publicly available at https://github.com/aidinattar/multi-depth-temporal-fusion-snn. </p></section>
+    <section class="publication-dialog__section"><h3>Bibliographic information</h3><dl class="publication-dialog__facts"><div><dt>Type</dt><dd>Preprint</dd></div><div><dt>Venue</dt><dd>Submitted to Elsavier Neurocomputing</dd></div><div><dt>Year</dt><dd>2026</dd></div><div><dt>Pages</dt><dd>23</dd></div></dl></section>
+    <div class="publication-dialog__links"><span class="publication-links"><a href="https://arxiv.org/abs/arXiv:2609.37047v2" target="_blank" rel="noopener noreferrer">arXiv</a><span class="link-dot" aria-hidden="true">·</span><a href="https://arxiv.org/pdf/2609.37047" target="_blank" rel="noopener noreferrer">PDF</a></span></div>
+    <section class="publication-dialog__section publication-citation"><div class="publication-citation__heading"><h3>BibTeX</h3><button class="publication-citation__copy" type="button" data-copy-bibtex>Copy BibTeX</button></div><pre><code>@misc{attar2026multidepthtemporalfusionfeedforward,
+      title={Multi-Depth Temporal Fusion for Feedforward, Locally Trained Spiking Neural Networks}, 
+      author={Aidin Attar and Eleonora Cicciarella and Michele Rossi},
+      year={2026},
+      eprint={2609.37047},
+      archivePrefix={arXiv},
+      primaryClass={cs.NE},
+      url={https://arxiv.org/abs/2609.37047}, 
+}</code></pre></section>
+  </div>
+</dialog>
+</section>
 </div>

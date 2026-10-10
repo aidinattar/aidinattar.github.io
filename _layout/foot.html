@@ -4,7 +4,7 @@
         <div class="site-footer__meta">
           <p class="site-footer__name">Aidin Attar</p>
           <p class="site-footer__role">PhD Student · University of Padova</p>
-          <p>
+          <p class="site-footer__links">
             <a href="https://github.com/aidinattar">GitHub</a>
             <span class="footer-sep">·</span>
             <a href="https://linkedin.com/in/aidin-attar">LinkedIn</a>
@@ -13,29 +13,15 @@
             <span class="footer-sep">·</span>
             <a href="mailto:attaraidin@gmail.com">Email</a>
           </p>
-          <p class="site-footer__note">Built with Franklin.jl · Content managed with Pages CMS</p>
+          <p class="site-footer__note">Built with Franklin.jl</p>
         </div>
-        <div class="footer-affiliations" aria-label="Academic affiliations">
-          <a
-            class="footer-affiliation"
-            href="https://www.unipd.it/"
-            aria-label="Visit the University of Padova website"
-          >
+        <div class="footer-affiliations" aria-label="Academic affiliation">
+          <a class="footer-institution" href="https://www.dei.unipd.it/" aria-label="Department of Information Engineering, University of Padova">
             <img
-              class="affiliation-logo affiliation-logo--unipd"
-              src="/assets/affiliations/unipd-logo.svg"
-              alt="University of Padova logo"
-            >
-          </a>
-          <a
-            class="footer-affiliation"
-            href="https://www.dei.unipd.it/"
-            aria-label="Visit the Department of Information Engineering website"
-          >
-            <img
-              class="affiliation-logo affiliation-logo--dei"
-              src="/assets/affiliations/dei-logo.png"
-              alt="Department of Information Engineering logo"
+              class="footer-institution__logo"
+              src="/assets/affiliations/dei-unipd-white.svg?v=20261010-4"
+              alt="Università di Padova — Dipartimento di Ingegneria dell’Informazione"
+              width="359" height="91"
             >
           </a>
         </div>
@@ -43,5 +29,11 @@
     </footer>
   </div>
   <script defer src="/assets/js/site.js"></script>
+  {{if hasmath}}
+  <!-- Franklin outputs TeX delimiters; KaTeX must render them in the browser. -->
+  <script defer src="/libs/katex/katex.min.js"></script>
+  <script defer src="/libs/katex/contrib/auto-render.min.js"></script>
+  <script defer src="/assets/js/math.js?v=20261010-4"></script>
+  {{end}}
 </body>
 </html>

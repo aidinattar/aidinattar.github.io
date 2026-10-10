@@ -18,11 +18,15 @@ The first-time connection to Pages CMS/GitHub is an account authorization, not a
 | Publications | `content/publications/*.json` | Compact bibliography, modal details, auto-BibTeX |
 | Theses | `content/theses/*.json` | Theses section of Publications |
 | Projects | `content/projects/*.json` | Projects page and selected homepage projects |
-| Notes | `content/notes/*.md` (TOML frontmatter + Franklin Markdown) | Notes index and individual `/notes/<filename>/` pages |
+| Notes | `notes/*.md` (TOML-compatible Franklin +++ frontmatter) | Notes index and individual `/notes/<filename>/` pages |
 
-**Do not edit** `_layout/generated/*` or `notes/*.md` directly: these files are generated before deployment. Edit the matching source under `content/` instead. Page copy outside the four collections (home, research, CV, contact) remains in the original Markdown files and can still be edited normally in GitHub.
+**Do not edit** `_layout/generated/*` directly: these HTML lists are generated before deployment. Notes live only in `notes/*.md` and are edited directly through Pages CMS or in Git. The other collections have sources under `content/`. Page copy outside the four collections (home, research, CV, contact) remains in the original Markdown files and can still be edited normally in GitHub.
 
 Notes use the Pages CMS **code editor** for the body, intentionally rather than WYSIWYG, to preserve Franklin math (`$$...$$`), LaTeX expressions, HTML sections, Julia code blocks, and citations. For a new note, start the body with a heading (`# My note`) or a custom HTML intro. Preview images belong in `_assets` and are referenced as `/assets/...`.
+
+### Notes: one directory
+
+The files in `notes/` are the **single source of truth**. Both Pages CMS and Franklin use their `+++` metadata directly; `scripts/build_content.py` only generates the notes listing and an ignore list for unpublished notes. There is no `content/notes/` directory anymore. Keep date values quoted as strings in metadata (e.g. `date = "2026-10-10"`), because Franklin interprets `+++` as Julia code.
 
 ### Local development
 
@@ -45,4 +49,4 @@ Only Python 3.11+ (standard library) and the existing Julia dependencies are nee
 
 Use one JSON record per publication. `title`, `authors` (ordered list), `type`, and `year` control the reference list; `venue`, `proceedings`, `pages`, `abstract`, and the DOI/arXiv/PDF links populate the popup. Provide `bibtex` to override the automatically generated minimal BibTeX. Set `published: false` to hide a work without deleting it.
 
-Projects can be marked `featured` (large card in Projects) and `home` (shown on the homepage). Notes are ordered by `order` and can be hidden with `published: false`. The `order` field also controls the project and thesis ordering.
+Projects can be marked `featured` (large card in Projects) and `home` (shown on the homepage). Notes are ordered by `order`. Notes with `published: false` are excluded from the index and Franklin routing at build time (via a generated ignore list). The `order` field also controls the project and thesis ordering.
