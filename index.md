@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="hero-portrait">
-    <img src="/assets/home/profile.jpg" alt="Portrait of Aidin Attar">
+    <img src="/assets/home/profile.jpeg" alt="Portrait of Aidin Attar">
   </div>
 </section>
 ~~~
