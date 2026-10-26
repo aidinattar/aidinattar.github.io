@@ -3,7 +3,7 @@ title = 'NeuRITES Lab website is now online!'
 description = 'A new website for NeuRITES Lab, our research group at the University of Padova.'
 summary = "After some weeks of work, our lab's website is finally online!"
 category = 'Lab update'
-date = '2026-10-12'
+date = '2026-10-26'
 image = '/assets/neuritesprimary.svg'
 image_alt = 'NeuRITES Logo'
 topics = [
@@ -11,7 +11,7 @@ topics = [
 	'Research group',
 ]
 order = 1.0
-published = false
+published = true
 +++
 ~~~
 <section class="page-intro note-intro">
