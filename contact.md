@@ -68,6 +68,7 @@
       </span>
     </h3>
     <p class="contact-affiliation">
+      <a href="https://neurites.dei.unipd.it/">NeuRITES Lab</a><br>
       Department of Information Engineering<br>
       University of Padova
     </p>

@@ -7,6 +7,7 @@
   <p>
     My work focuses on spiking neural networks and learning algorithms that use local information.
     I am interested in how these models can learn over time and operate under the constraints of neuromorphic hardware.
+    I pursue this research within <a href="https://neurites.dei.unipd.it/">NeuRITES Lab</a> at the University of Padova.
   </p>
 </section>
 ~~~

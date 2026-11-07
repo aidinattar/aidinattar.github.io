@@ -1,10 +1,10 @@
 @def title = "Aidin Attar"
-@def description = "PhD student in Information Engineering at the University of Padova, working on spiking neural networks, local learning, and adaptive intelligent systems."
+@def description = "PhD student in Information Engineering at the University of Padova and member of NeuRITES Lab, working on spiking neural networks, local learning, and adaptive intelligent systems."
 
 ~~~
 <section class="hero">
   <div class="hero-copy">
-    <p class="eyebrow">PhD Student in Information Engineering · University of Padova</p>
+    <p class="eyebrow">PhD Student in Information Engineering · NeuRITES Lab · University of Padova</p>
     <h1>Spiking neural networks, local learning, and adaptive computation</h1>
     <p class="hero-summary">
       I work on spiking neural networks, especially local learning rules, temporal processing, and efficient neuromorphic computation.
@@ -43,9 +43,11 @@
 
 ## About
 
-I am a PhD student at the [Department of Information Engineering](https://www.dei.unipd.it/home-page), [University of Padova](https://www.unipd.it/), working on spiking neural networks and local learning. In particular, I study network architectures and learning rules that rely on spikes, temporal information, and local plasticity rather than conventional end-to-end training alone.
+I am a PhD student at the [Department of Information Engineering](https://www.dei.unipd.it/home-page), [University of Padova](https://www.unipd.it/), and a member of [NeuRITES Lab](https://neurites.dei.unipd.it/), led by Prof. Michele Rossi. My research focuses on spiking neural networks and local learning. In particular, I study network architectures and learning rules that rely on spikes, temporal information, and local plasticity rather than conventional end-to-end training alone.
 
 My background is in physics and machine learning. More recently, my work has focused on reward-modulated learning, predictive processing, and the interaction between fast adaptation and longer-term memory. I am also interested in what changes when these models are designed for actual neuromorphic hardware.
+
+You can also find me on the [NeuRITES people page](https://neurites.dei.unipd.it/people/aidin-attar/).
 
 ## Research directions
 

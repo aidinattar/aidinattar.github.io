@@ -1493,6 +1493,21 @@ h3 {
   box-shadow: none;
 }
 
+.site-footer .footer-neurites {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  line-height: 0;
+  transition: opacity 0.15s ease;
+}
+.site-footer .footer-neurites:hover { opacity: 0.82; }
+.site-footer .footer-neurites__logo {
+  display: block;
+  width: clamp(170px, 18vw, 195px);
+  max-width: 100%;
+  height: auto;
+}
+
 /* Avoid forcing the entire note wider than the viewport for long formulas. */
 .franklin-content .katex-display {
   max-width: 100%;
